@@ -137,7 +137,10 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
 .item.offline .name,.item.offline .meters{opacity:.55}
 .empty{padding:60px 20px;text-align:center;color:var(--muted);font-size:13px}
 /* detail handled by media queries */
-.d-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.d-head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+.d-agent{font:500 11px/1.2 ui-monospace,Consolas,monospace;color:var(--muted);background:var(--track);padding:2px 6px;border-radius:3px}
+
 .d-head h2{margin:0;font-size:20px;font-weight:600;letter-spacing:0;overflow-wrap:anywhere}
 .d-time{font-size:12px;color:var(--muted);white-space:nowrap}
 .d-sub{margin-top:8px;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
@@ -510,7 +513,7 @@ function renderDetailTop(n){
  var meta=[];if(n.country)meta.push(n.country);if(n.group)meta.push(n.group);
  var st=n.online?"在线":ago(n.last_seen_ago);
  var h='<button class="back" id="back" type="button">'+ICON.back+'返回列表</button>'+
- '<div class="d-head"><h2>'+esc(n.name)+'</h2><span class="d-time">'+esc(st)+'</span></div>'+
+ '<div class="d-head"><h2>'+esc(n.name)+'</h2><div class="d-head-meta"><span class="d-time">'+esc(st)+'</span>'+(n.agent_version?'<span class="d-agent">Agent: '+esc(n.agent_version)+'</span>':'')+'</div></div>'+
  '<div class="d-sub">'+esc(meta.concat(n.public_remark?[n.public_remark]:[]).join(" · "))+'</div>';
  function cell(lb,val,p,sub){return'<div class="stat"><div class="lb">'+lb+'</div><div class="v">'+val+'</div><div class="sub">'+esc(sub||"")+'</div>'+(p==null?'':'<div class="bar"><i class="'+barCls(p)+'" style="width:'+p+'%"></i></div>')+'</div>'}
  h+='<div class="stats">'+
@@ -533,7 +536,7 @@ function renderDetailInfo(n){
   infoRow("在线时长",n.online&&num(m.uptime)?uptime(m.uptime):"")+infoRow("进程数",num(m.procs)?m.procs:"")+
   infoRow("交换分区",num(m.swap_total)&&m.swap_total>0?pct(swap)+" · "+bytes(m.swap_used)+" / "+bytes(m.swap_total):"")+
   infoRow("系统负载",m.load&&num(m.load[0])?m.load.map(function(x){return x.toFixed(2)}).join(" / "):"")+
-  infoRow("价格周期",price)+infoRow("到期时间",expire(n)+(n.expires_at?" ("+n.expires_at+")":""))+infoRow("探针版本",n.agent_version)+
+  infoRow("价格周期",price)+infoRow("到期时间",expire(n)+(n.expires_at?" ("+n.expires_at+")":""))+
   (S.admin&&n.remark?infoRow("备注",n.remark):"");
  var cnt=(rows.match(/<div>/g)||[]).length;
  var h='<div class="sec-title">主机与系统配置</div><div class="info'+(cnt%2?' odd':'')+'">'+rows+'</div>';
