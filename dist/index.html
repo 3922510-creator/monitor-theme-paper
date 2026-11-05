@@ -628,9 +628,39 @@ function movAvg(pts, w) {
  }
  return res;
 }
+function fillShortGaps(pts, maxGapPoints) {
+ if (!pts || pts.length < 3) return pts;
+ var limit = maxGapPoints || 3;
+ var res = [];
+ for (var i = 0; i < pts.length; i++) {
+  var p = pts[i];
+  if (num(p[1])) {
+   res.push([p[0], p[1], p[2]]);
+  } else {
+   // 往前找最近有效点，往后找最近有效点
+   var prev = null, next = null, nextIdx = -1;
+   for (var k = i - 1; k >= 0; k--) {
+    if (num(pts[k][1])) { prev = pts[k]; break; }
+   }
+   for (var k = i + 1; k < pts.length; k++) {
+    if (num(pts[k][1])) { next = pts[k]; nextIdx = k; break; }
+   }
+   if (prev && next && (nextIdx - i) <= limit) {
+    // 短时单点或双点丢包中断：线性插值连通，保持曲线连续
+    var ratio = (p[0] - prev[0]) / (next[0] - prev[0]);
+    var interpVal = prev[1] + (next[1] - prev[1]) * ratio;
+    res.push([p[0], interpVal, p[2]]);
+   } else {
+    res.push(p);
+   }
+  }
+ }
+ return res;
+}
 function smoothPts(pts) {
- if (!S.smooth) return pts;
- return movAvg(despike(pts, 9), 5);
+ var filled = fillShortGaps(pts, 3);
+ if (!S.smooth) return filled;
+ return movAvg(despike(filled, 9), 5);
 }
 
 /* ---------- 图表 ---------- */
@@ -677,7 +707,7 @@ function drawChart(c){
  g.textBaseline="top";
  var span=t1-t0,nt=Math.max(2,Math.min(6,Math.floor(pw/90)));
  for(var j=0;j<=nt;j++){var t=t0+span*j/nt;g.textAlign=j===0?"left":j===nt?"right":"center";g.fillText(span>90000?mdhm(t):hhmm(t),X(t),H-B+6)}
- var gap=(cfg.step||60)*3.5;
+ var gap=(cfg.step||60)*6.5;
  cfg.series.forEach(function(s,si){
   var col=getColor(s,si);g.strokeStyle=col;g.lineWidth=1.6;g.lineJoin="round";
   var prev=null,pen=false;g.beginPath();
