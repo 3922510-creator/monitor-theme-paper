@@ -1,0 +1,73 @@
+{
+  "name": "Paper 纸感",
+  "short": "paper",
+  "description": "质感纸面风格：PC 视口一页式左右分栏、资源与网络双页签、24小时可用率跟手滑动轨迹、低饱和多主题色支持",
+  "version": "1.0.0",
+  "author": "3922510-creator",
+  "url": "https://github.com/3922510-creator/monitor-theme-paper",
+  "config": [
+    {
+      "type": "title",
+      "label": "首页"
+    },
+    {
+      "key": "notice",
+      "type": "text",
+      "label": "公告",
+      "default": "",
+      "help": "显示在页面顶部，留空不显示"
+    },
+    {
+      "key": "mode",
+      "type": "select",
+      "label": "默认配色",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "跟随系统"
+        },
+        {
+          "value": "light",
+          "label": "浅色"
+        },
+        {
+          "value": "dark",
+          "label": "深色"
+        }
+      ]
+    },
+    {
+      "key": "accent",
+      "type": "select",
+      "label": "默认强调主题色",
+      "default": "blue",
+      "options": [
+        {
+          "value": "blue",
+          "label": "经典蓝 (Blue)"
+        },
+        {
+          "value": "emerald",
+          "label": "翡翠绿 (Emerald)"
+        },
+        {
+          "value": "amber",
+          "label": "琥珀橙 (Amber)"
+        },
+        {
+          "value": "purple",
+          "label": "暮光紫 (Purple)"
+        },
+        {
+          "value": "zinc",
+          "label": "极简黑灰 (Zinc)"
+        },
+        {
+          "value": "rose",
+          "label": "玫瑰赤 (Rose)"
+        }
+      ]
+    }
+  ]
+}
