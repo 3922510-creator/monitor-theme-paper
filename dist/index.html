@@ -7,8 +7,8 @@
 <link rel="icon" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
-:root{--bg:#f4f5f7;--paper:#ffffff;--text:#2e3338;--muted:#828892;--border:#e2e5e9;--hover:#f7f8fa;--selected:#edf3f9;--accent:#2d639b;--accent-line:#d2deeb;--accent-surface:#f5f8fc;--warn:#b8751e;--bad:#c24138;--track:#e8ecf1;color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg)}
-[data-theme=dark]{--bg:#14171a;--paper:#1c2024;--text:#dce0e5;--muted:#88919b;--border:#2a3036;--hover:#23282e;--selected:#222c38;--accent:#88b5e8;--accent-line:#2f3f52;--accent-surface:#1c2530;--warn:#d49746;--bad:#d96b64;--track:#2a3036;color-scheme:dark}
+:root{--bg:#f4f5f7;--paper:#ffffff;--text:#2e3338;--muted:#828892;--border:#e2e5e9;--border-item:#adb5bd;--hover:#f7f8fa;--selected:#edf3f9;--accent:#2d639b;--accent-line:#d2deeb;--accent-surface:#f5f8fc;--warn:#b8751e;--bad:#c24138;--track:#e8ecf1;color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg)}
+[data-theme=dark]{--bg:#14171a;--paper:#1c2024;--text:#dce0e5;--muted:#88919b;--border:#2a3036;--border-item:#49515a;--hover:#23282e;--selected:#222c38;--accent:#88b5e8;--accent-line:#2f3f52;--accent-surface:#1c2530;--warn:#d49746;--bad:#d96b64;--track:#2a3036;color-scheme:dark}
 
 /* 强调色主题方案 (低饱和柔和调) */
 html[data-accent="emerald"]{--accent:#1f7a59;--accent-line:#c5ebd8;--accent-surface:#f2faf6;--selected:#e1f5eb}
@@ -42,8 +42,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
  .notice{margin:0 0 8px;padding:8px 14px;background:var(--accent-surface);border:1px solid var(--accent-line);border-radius:6px;color:var(--accent);font-size:12px;white-space:pre-wrap;word-break:break-word;flex-shrink:0}
  .app{background:var(--paper);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;box-shadow:0 4px 20px rgba(0,0,0,.03)}
  .app-header{flex-shrink:0}
- .summary{flex-shrink:0;padding:16px 28px}
- .toolbar{flex-shrink:0;min-height:56px}
+ .app-header{flex-shrink:0;min-height:52px;padding:0 24px}
+ .toolbar{flex-shrink:0;min-height:48px;padding:0 16px 0 20px}
  .layout{flex:1;min-height:0;display:grid;grid-template-columns:360px minmax(0,1fr);height:100%}
  .list-col{height:100%;overflow-y:auto;border-right:1px solid var(--border);position:static;scrollbar-width:none;-ms-overflow-style:none}
  .list-col::-webkit-scrollbar{display:none}
@@ -56,42 +56,43 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
  .notice{margin:0 0 10px;padding:10px 16px;background:var(--accent-surface);border:1px solid var(--accent-line);border-radius:6px;color:var(--accent);font-size:13px;white-space:pre-wrap;word-break:break-word}
  .app{background:var(--paper);border:1px solid var(--border);border-radius:6px;overflow:hidden}
 }
-.app-header{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid var(--border);gap:12px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;border-bottom:1px solid var(--border);gap:16px;min-height:52px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex-shrink:0}
 .brand img{width:22px;height:22px;border-radius:4px}
-h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.header-actions{display:flex;gap:8px;align-items:center}
-.icon-button{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px}
+h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.header-right{display:flex;align-items:center;gap:16px;min-width:0}
+.summary-inline{display:flex;align-items:center;gap:18px;font-size:12px;color:var(--muted);white-space:nowrap}
+.summary-inline .sum-nodes{display:flex;align-items:center;gap:6px;font-weight:500;color:var(--text)}
+.summary-inline .sum-nodes b{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:13px;font-weight:600;color:var(--accent)}
+.summary-inline .sum-nodes small{color:var(--muted);font-weight:400;margin-left:2px}
+.summary-inline .sum-stat{display:flex;align-items:baseline;gap:5px}
+.summary-inline .sum-stat b{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-weight:500;color:var(--text);font-size:12px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0}
+.dot.off{background:var(--muted);opacity:.6}
+.header-actions{display:flex;gap:4px;align-items:center;flex-shrink:0}
+.icon-button{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px}
 @keyframes spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
 .spinning svg { animation: spin 0.65s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
 
-.plain-button{min-height:44px;padding:0 12px;border-radius:4px;display:inline-flex;align-items:center;gap:8px;font-size:13px;border:1px solid var(--border);text-decoration:none}
-.plain-button:hover{background:var(--hover)}
-.summary{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;gap:24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
-.sum-main{display:flex;align-items:center;gap:20px}
-.sum-label{font-size:13px;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:8px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0}
-.dot.off{background:var(--muted);opacity:.6}
-.big{font:500 25px/1.4 ui-monospace,"SFMono-Regular",Consolas,monospace;letter-spacing:-.5px;white-space:nowrap}
-.big small{font-size:14px;color:var(--muted);letter-spacing:0}
-.sum-meta{display:flex;gap:28px;font-size:12px;color:var(--muted);flex-wrap:wrap}
-.sum-meta div{display:flex;flex-direction:column;gap:2px}
-.sum-meta strong{font:500 15px/1.4 ui-monospace,"SFMono-Regular",Consolas,monospace;color:var(--text)}
-.toolbar{display:flex;align-items:center;justify-content:space-between;padding:0 20px;min-height:66px;border-bottom:1px solid var(--border);gap:20px}
-.filters{display:flex;gap:16px;align-self:stretch;overflow-x:auto;scrollbar-width:none;min-width:0}
+.toolbar{display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 20px;min-height:48px;border-bottom:1px solid var(--border);gap:16px}
+.filters{display:flex;gap:12px;align-self:stretch;overflow-x:auto;scrollbar-width:none;min-width:0;align-items:center}
 .filters::-webkit-scrollbar{display:none}
-.filter{padding:0 8px;border-bottom:2px solid transparent;border-radius:0;white-space:nowrap;font-size:13px;color:var(--muted);min-height:44px}
+.filter{padding:0 6px;border-bottom:2px solid transparent;border-radius:0;white-space:nowrap;font-size:13px;color:var(--muted);height:100%;display:inline-flex;align-items:center}
 .filter.active{border-color:var(--accent);color:var(--accent);font-weight:550}
-.filter span{margin-left:6px;font-size:12px;color:var(--muted);background:var(--selected);border-radius:3px;padding:1px 6px}
+.filter span{margin-left:5px;font-size:11px;color:var(--muted);background:var(--selected);border-radius:3px;padding:1px 5px}
 .filter.active span{color:var(--accent)}
-.tools{display:flex;align-items:center;gap:10px;min-width:0}
-.search{display:flex;align-items:center;gap:8px;background:var(--bg);border-radius:4px;padding:0 10px;width:220px;min-width:0;color:var(--muted)}
-.search svg{width:16px;height:16px}
-.search input{width:100%;min-height:44px;min-width:0;border:0;background:transparent;color:var(--text);font-size:13px}
+.tools{display:flex;align-items:center;gap:8px;min-width:0;flex-shrink:0}
+.search{display:flex;align-items:center;gap:6px;background:var(--bg);border-radius:4px;padding:0 8px;width:200px;min-width:0;color:var(--muted);height:32px}
+.search svg{width:14px;height:14px;flex-shrink:0}
+.search input{width:100%;height:100%;min-height:auto;min-width:0;border:0;background:transparent;color:var(--text);font-size:12px}
 .search input::placeholder{color:var(--muted)}
 /* layout handled by media queries */
-.list-heading{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);padding:16px 22px;border-bottom:1px solid var(--border)}
-.item{display:block;width:100%;text-align:left;padding:14px 22px 14px 20px;border-bottom:1px solid var(--border);border-left:2px solid transparent;border-radius:0}
+.list-heading{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);padding:16px 22px;border-bottom:1px solid var(--border)}
+@media(min-width:821px){
+ .list-heading{display:none !important}
+}
+.m-list-tools{display:none}
+.item{display:block;width:100%;text-align:left;padding:15px 22px 18px 20px;border-bottom:1px solid var(--border-item);border-left:2px solid transparent;border-radius:0}
 .item.selected{background:var(--selected);border-left-color:var(--accent)}
 .item .r1{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .item .name{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -186,8 +187,13 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
 @media(max-width:980px){.charts-grid{grid-template-columns:1fr}}
 .chart-card h3{margin:0 0 4px;font-size:13px;font-weight:600}
 .legend{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:6px}
-.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
-.legend b{font-weight:400;color:var(--text);margin-left:5px;font-variant-numeric:tabular-nums}
+.legend-item{display:inline-flex;align-items:center;background:none;border:0;padding:2px 4px;border-radius:3px;cursor:pointer;font-size:12px;color:var(--muted);user-select:none;transition:opacity .15s,background .15s}
+.legend-item:hover{background:var(--hover);color:var(--text)}
+.legend-item.off{opacity:.35;text-decoration:line-through}
+.legend-item.off b{color:var(--muted)}
+.legend-item.off .loss-badge{opacity:.5}
+.legend i,.legend-item i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;flex-shrink:0}
+.legend b,.legend-item b{font-weight:400;color:var(--text);margin-left:5px;font-variant-numeric:tabular-nums}
 .loss-badge{font-size:11px;font-weight:500;padding:0 4px;border-radius:2px;margin-left:6px;font-variant-numeric:tabular-nums}
 .loss-badge.zero{color:var(--muted);background:var(--track);opacity:.8}
 .loss-badge.warn{color:#b86e1e;background:rgba(220,164,87,.15)}
@@ -203,28 +209,37 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
 .footer .live{display:flex;align-items:center;gap:8px}
 .footer .live.err{color:var(--bad)}
 .footer .live.err .dot{background:var(--bad)}
+/* 移动端迷你徽标与搜索栏样式 */
+.m-badge{display:none}
+.search-close{display:none}
 @media(max-width:820px){
  body{background:var(--paper)}
  .wrap{padding:0;margin:0;max-width:none}
  .notice{margin:0;border-radius:0;border-left:0;border-right:0}
  .app{border:0;border-radius:0;box-shadow:none}
- .app-header{padding:10px 16px;position:sticky;top:0;background:var(--paper);z-index:10}
- .summary{padding:14px 16px;gap:12px;display:grid;grid-template-columns:auto 1fr;align-items:center}
- .sum-main{gap:12px}
- .sum-label{font-size:12px}
- .big{font-size:22px}
- .sum-meta{gap:12px;font-size:11px;justify-content:flex-end}
- .sum-meta div{align-items:flex-end}
- .sum-meta strong{font-size:13px}
- .toolbar{padding:0 12px;flex-direction:column;align-items:stretch;min-height:auto;gap:8px;border-bottom:1px solid var(--border);padding-bottom:10px}
- .filters{width:100%;gap:6px;padding:2px 0}
- .filter{min-height:36px;font-size:12px;padding:0 6px}
- .tools{width:100%;gap:8px}
- .search{flex:1;width:auto;background:var(--bg)}
- .search input{height:36px;min-height:36px}
+ .app-header{padding:8px 14px;position:sticky;top:0;background:var(--paper);z-index:10;min-height:44px}
+ .brand{gap:10px}
+ .brand h1{font-size:18px;font-weight:650}
+ .m-badge{display:inline-flex;align-items:center;gap:4px;padding:1px 6px;background:var(--selected);border:1px solid var(--border);border-radius:10px;font-size:10px;color:var(--text);font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;white-space:nowrap}
+ .m-badge .dot{width:4.5px;height:4.5px}
+ .m-badge b{color:var(--accent);font-weight:600;font-size:11px}
+ .m-badge small{color:var(--muted);font-weight:400}
+ .header-right{gap:6px}
+ .summary-inline{display:none}
+ .toolbar{padding:0 12px;display:flex;align-items:center;min-height:42px;height:42px;border-bottom:1px solid var(--border)}
+ .filters{width:100%;gap:10px;height:100%;padding:0}
+ .filter{height:100%;font-size:13px;padding:0 4px}
+ .toolbar .tools{display:none}
+ .list-heading{display:flex;align-items:center;padding:8px 12px;gap:8px;border-bottom:1px solid var(--border);background:var(--paper)}
+ .list-heading #listSort, .list-heading #listCount{display:none}
+ .m-list-tools{display:flex;align-items:center;gap:8px;width:100%}
+ .m-list-tools .search{display:flex;flex:1;height:34px;background:var(--bg);border-radius:4px;padding:0 10px;width:auto}
+ .m-list-tools .search input{height:34px;font-size:13px}
+ .m-list-tools .icon-button{width:34px;height:34px;flex-shrink:0}
+
  .layout{display:block;min-height:0}
  .list-col{position:static;max-height:none;border-right:0}
- .item{padding:14px 16px}
+ .item{padding:15px 16px 18px;border-bottom:1px solid var(--border-item)}
  .item:active{background:var(--hover)}
  .detail{display:none;padding:16px 16px 36px}
  .app.m-detail .list-col,.app.m-detail .summary,.app.m-detail .toolbar{display:none}
@@ -259,13 +274,14 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
  <div class="notice" id="notice" hidden></div>
  <div class="app" id="app">
   <header class="app-header">
-   <div class="brand"><img src="/favicon.svg" alt="" id="logo" onerror="this.remove()"><h1 id="siteName">探针</h1></div>
-   <div class="header-actions">
-    <button class="icon-button" id="themeBtn" type="button" aria-label="切换明暗"></button>
-    
+   <div class="brand"><img src="/favicon.svg" alt="" id="logo" onerror="this.remove()"><h1 id="siteName">探针</h1><span class="m-badge" id="mBadge"><span class="dot"></span><b>0</b><small>/ 0</small></span></div>
+   <div class="header-right">
+    <div class="summary-inline" id="summary"></div>
+    <div class="header-actions">
+     <button class="icon-button" id="themeBtn" type="button" aria-label="切换明暗"></button>
+    </div>
    </div>
   </header>
-  <section class="summary" id="summary"></section>
   <div class="toolbar">
    <div class="filters" id="filters"></div>
    <div class="tools">
@@ -274,7 +290,17 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
    </div>
   </div>
   <div class="layout">
-   <aside class="list-col"><div class="list-heading"><span id="listSort">按面板排序</span><span id="listCount"></span></div><div id="list"></div></aside>
+   <aside class="list-col">
+    <div class="list-heading">
+     <span id="listSort">按面板排序</span>
+     <span id="listCount"></span>
+     <div class="m-list-tools">
+      <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg><input id="mq" type="search" placeholder="搜索节点" autocomplete="off"></label>
+      <button class="icon-button" id="mrefresh" type="button" aria-label="刷新"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg></button>
+     </div>
+    </div>
+    <div id="list"></div>
+   </aside>
    <main class="detail" id="detail"></main>
   </div>
   <footer class="footer"><div class="live" id="live"><span class="dot"></span><span id="liveText">连接中</span></div><div id="foot">点击节点查看详情</div></footer>
@@ -290,7 +316,7 @@ var ICON={
  sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg>',
  back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'
 };
-var S={nodes:[],admin:false,me:{history_days:7,site_name:""},cfg:{notice:"",mode:"auto",accent:"blue"},group:-1,q:"",routeId:null,loaded:false,hours:6,detailId:null,seq:0,lastFrame:0,ws:null,wsFails:0,err:"",cpuScale:"fit",memScale:"fit",detailTab:"res",smooth:true,reconnectSec:0,statusMap:{},loadingStatus:{}};
+var S={nodes:[],admin:false,me:{history_days:7,site_name:""},cfg:{notice:"",mode:"auto",accent:"blue"},group:-1,q:"",routeId:null,loaded:false,hours:6,detailId:null,seq:0,lastFrame:0,ws:null,wsFails:0,err:"",cpuScale:"fit",memScale:"fit",detailTab:"res",smooth:true,reconnectSec:0,statusMap:{},loadingStatus:{},hiddenProbes:{},lastHistoryData:null};
 
 /* ---------- 工具 ---------- */
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
@@ -347,8 +373,12 @@ function renderSummary(){
  var ns=S.nodes.filter(inGroup),on=ns.filter(function(n){return n.online});
  var rx=0,tx=0,tr=0;on.forEach(function(n){var m=mp(n);if(m){rx+=num(m.net_rx)?m.net_rx:0;tx+=num(m.net_tx)?m.net_tx:0}});
  ns.forEach(function(n){tr+=num(n.month_used)?n.month_used:(num(n.month_rx)&&num(n.month_tx)?n.month_rx+n.month_tx:0)});
- $("#summary").innerHTML='<div class="sum-main"><div class="sum-label"><span class="dot"></span>在线节点</div><div class="big">'+on.length+' <small>/ '+ns.length+'</small></div></div>'+
- '<div class="sum-meta"><div>下行<strong>'+esc(speed(rx))+'</strong></div><div>上行<strong>'+esc(speed(tx))+'</strong></div><div>本月流量<strong>'+esc(bytes(tr))+'</strong></div></div>'}
+ var el=$("#summary");if(!el)return;
+ el.innerHTML='<div class="sum-nodes"><span class="dot"></span>在线 <b>'+on.length+'</b><small>/ '+ns.length+'</small></div>'+
+  '<div class="sum-stat">下行 <b>'+esc(speed(rx))+'</b></div>'+
+  '<div class="sum-stat">上行 <b>'+esc(speed(tx))+'</b></div>'+
+  '<div class="sum-stat">本月 <b>'+esc(bytes(tr))+'</b></div>';
+ var mb=$("#mBadge");if(mb)mb.innerHTML='<span class="dot'+(on.length?"":" off")+'"></span><b>'+on.length+'</b><small>/ '+ns.length+'</small>';}
 function renderFilters(){
  var g=groups(),ungrouped=S.nodes.filter(function(n){return!n.group}).length;
  var h='<button class="filter'+(S.group===-1?' active':'')+'" data-g="-1">全部<span>'+S.nodes.length+'</span></button>';
@@ -555,6 +585,8 @@ function renderDetail(){
  if(!n){box.innerHTML='<div class="empty">'+(S.loaded?"选择左侧节点查看详情":"加载中")+'</div>';S.detailId=null;return}
  if(S.detailId!==n.id){
   S.detailId=n.id;
+  S.hiddenProbes={};
+  S.lastHistoryData=null;
   box.innerHTML='<div id="dTop"></div>'+
    '<nav class="detail-tabs">'+
     '<button class="detail-tab'+(S.detailTab==="res"?' active':'')+'" data-tab="res" type="button">系统资源</button>'+
@@ -578,7 +610,7 @@ function renderRanges(){
  var whole=Math.max(1,S.me.history_days||7)*24,W=[1,6,24,168,720,2160];
  var hs=W.filter(function(h){return h*1.25<=whole});hs.push(whole);
  if(hs.indexOf(S.hours)<0)S.hours=hs.indexOf(6)>=0?6:hs[0];
- function lb(h){return h<24||h%24?h+" 小时":(h/24)+" 天"}
+ function lb(h){return h<=24||h%24?h+" 小时":(h/24)+" 天"}
  var html=hs.map(function(h){return'<button class="range'+(h===S.hours?' active':'')+'" data-h="'+h+'" type="button">'+lb(h)+'</button>'}).join("");
  var el1=$("#ranges");if(el1)el1.innerHTML=html;
  var el2=$("#netRanges");if(el2)el2.innerHTML=html;}
@@ -742,17 +774,74 @@ function getColor(s, i){
  var p = palette();
  return p[i % p.length];
 }
-function chartCard(target,title,series,cfg,extraHeader){
+function chartCard(target,title,series,cfg,extraHeader,cardId){
  var wrap=document.createElement("div");wrap.className="chart-card";
- var has=series.some(function(s){return s.pts.length>1});
- var leg=series.map(function(s,i){var last=null;for(var k=s.pts.length-1;k>=0;k--)if(num(s.pts[k][1])){last=s.pts[k][1];break}
+ if(cardId)wrap.id=cardId;
+ var isPing = cardId === "pingChartCard";
+ var visibleSeries = isPing ? series.filter(function(s){return !S.hiddenProbes[s.id]}) : series;
+ var has=visibleSeries.some(function(s){return s.pts.length>1});
+ var leg=series.map(function(s,i){
+  var last=null;for(var k=s.pts.length-1;k>=0;k--)if(num(s.pts[k][1])){last=s.pts[k][1];break}
   var subBadge = s.sub ? s.sub : "";
-  return'<span><i style="background:'+getColor(s,i)+'"></i>'+esc(s.name)+'<b>'+esc(last===null?"—":cfg.fmt(last))+'</b>'+subBadge+'</span>'}).join("");
+  var col = s.color || getColor(s, i);
+  if(isPing){
+   var isOff = !!S.hiddenProbes[s.id];
+   return '<button type="button" class="legend-item'+(isOff?" off":"")+'" data-probe-id="'+esc(s.id)+'" title="点击切换显示/隐藏"><i style="background:'+col+'"></i>'+esc(s.name)+'<b>'+esc(last===null?"—":cfg.fmt(last))+'</b>'+subBadge+'</button>';
+  }
+  return '<span><i style="background:'+col+'"></i>'+esc(s.name)+'<b>'+esc(last===null?"—":cfg.fmt(last))+'</b>'+subBadge+'</span>';
+ }).join("");
  var hdr='<div class="chart-header"><h3>'+esc(title)+'</h3>'+(extraHeader||"")+'</div>';
- wrap.innerHTML=hdr+(has?'<div class="legend">'+leg+'</div><div class="chart"></div>':'<div class="nodata">暂无数据</div>');
+ wrap.innerHTML=hdr+(has?'<div class="legend">'+leg+'</div><div class="chart"></div>':(isPing&&series.length?'<div class="legend">'+leg+'</div><div class="nodata">已隐藏所有探测点</div>':'<div class="nodata">暂无数据</div>'));
  var container=typeof target==="string"?$(target):target;
  if(container)container.appendChild(wrap);
- if(has){cfg.series=series;makeChart(wrap.querySelector(".chart"),cfg)}}
+ if(has){cfg.series=visibleSeries;makeChart(wrap.querySelector(".chart"),cfg)}}
+function renderPingChart(){
+ var oldCard = document.getElementById("pingChartCard");
+ if(oldCard && oldCard.parentNode) {
+  charts = charts.filter(function(c){return !oldCard.contains(c.host)});
+  oldCard.parentNode.removeChild(oldCard);
+ }
+ var d = S.lastHistoryData;
+ if(!d) return;
+ var ping=Array.isArray(d.ping)?d.ping:[],ids=[],seen={};
+ var lossMap = (d.loss && typeof d.loss === "object") ? d.loss : {};
+ ping.forEach(function(p){if(!seen[p.task_id]){seen[p.task_id]=1;ids.push(p.task_id)}});
+ if(!ids.length) return;
+ var step = d.step || 60;
+ var pal = palette();
+ var pingSeries = ids.map(function(t, idx){
+  var avgLoss = num(lossMap[t]) ? lossMap[t] : (num(lossMap[String(t)]) ? lossMap[String(t)] : 0);
+  var lossBadge = "";
+  if (avgLoss > 0) {
+   var cls = avgLoss >= 5 ? "bad" : "warn";
+   lossBadge = '<span class="loss-badge ' + cls + '">丢包 ' + (avgLoss >= 1 ? avgLoss.toFixed(1) : avgLoss.toFixed(2)) + '%</span>';
+  } else {
+   lossBadge = '<span class="loss-badge zero">无丢包</span>';
+  }
+  var rawPts = ping.filter(function(p){return p.task_id===t}).map(function(p){
+   var lat = num(p.latency) && p.latency > 0 ? p.latency : null;
+   var l = (num(p.loss) ? p.loss : 0);
+   return [p.ts, lat, l];
+  });
+  var smoothed = smoothPts(rawPts);
+  for (var i = 0; i < smoothed.length; i++) {
+   if (rawPts[i]) smoothed[i][2] = rawPts[i][2];
+  }
+  return {
+   id: t,
+   name: (d.probes && d.probes[t]) || ("监控 " + t),
+   color: pal[idx % pal.length],
+   sub: lossBadge,
+   pts: smoothed
+  };
+ });
+ var pCount = ids.length;
+ var hiddenCount = Object.keys(S.hiddenProbes).filter(function(k){return S.hiddenProbes[k]}).length;
+ var toggleAllTxt = hiddenCount > 0 ? "全部显示" : "全不选";
+ var extraHdr = pCount > 1 ? '<div class="chart-toggles"><button class="chart-toggle" id="pingToggleAll">' + toggleAllTxt + '</button></div>' : "";
+ chartCard("#dNetCharts","线路延迟与丢包率 (Ping)",pingSeries,{axis:function(v){return Math.round(v)+"ms"},fmt:function(v){return Math.round(v)+" ms"},step:step},extraHdr,"pingChartCard");
+}
+
 function loadHistory(){
  var id=S.detailId,seq=++S.seq;if(id===null)return Promise.resolve();
  return api("/api/nodes/"+id+"/metrics?hours="+S.hours+"&points=360").then(function(d){
@@ -810,39 +899,8 @@ function loadHistory(){
   txPeakSer.color = isDark ? "#dca457" : "#b86e1e";
   chartCard("#dNetCharts","带宽与网络速率",[rxSer,txSer,rxPeakSer,txPeakSer],{axis:function(v){return bytes(v).replace(" ","")},fmt:speed,step:step});
 
-  /* --- 4. 网络监控：Ping 延迟与丢包率 --- */
-  var ping=Array.isArray(d.ping)?d.ping:[],ids=[],seen={};
-  var lossMap = (d.loss && typeof d.loss === "object") ? d.loss : {};
-  ping.forEach(function(p){if(!seen[p.task_id]){seen[p.task_id]=1;ids.push(p.task_id)}});
-  if(ids.length){
-   var pingSeries = ids.map(function(t){
-    var avgLoss = num(lossMap[t]) ? lossMap[t] : (num(lossMap[String(t)]) ? lossMap[String(t)] : 0);
-    var lossBadge = "";
-    if (avgLoss > 0) {
-     var cls = avgLoss >= 5 ? "bad" : "warn";
-     lossBadge = '<span class="loss-badge ' + cls + '">丢包 ' + (avgLoss >= 1 ? avgLoss.toFixed(1) : avgLoss.toFixed(2)) + '%</span>';
-    } else {
-     lossBadge = '<span class="loss-badge zero">无丢包</span>';
-    }
-    // 提取带瞬时丢包信息的序列点 [ts, latency, loss]
-    var rawPts = ping.filter(function(p){return p.task_id===t}).map(function(p){
-     var lat = num(p.latency) && p.latency > 0 ? p.latency : null;
-     var l = (num(p.loss) ? p.loss : 0);
-     return [p.ts, lat, l];
-    });
-    // 平滑处理 (保持 p[2] loss 属性)
-    var smoothed = smoothPts(rawPts);
-    for (var i = 0; i < smoothed.length; i++) {
-     if (rawPts[i]) smoothed[i][2] = rawPts[i][2];
-    }
-    return {
-     name: (d.probes && d.probes[t]) || ("监控 " + t),
-     sub: lossBadge,
-     pts: smoothed
-    };
-   });
-   chartCard("#dNetCharts","线路延迟与丢包率 (Ping)",pingSeries,{axis:function(v){return Math.round(v)+"ms"},fmt:function(v){return Math.round(v)+" ms"},step:step});
-  }
+  S.lastHistoryData = d;
+  renderPingChart();
  }).catch(function(e){
   if(seq!==S.seq)return;
   var b=$("#dResCharts");if(b)b.innerHTML='<div class="chart-card"><div class="nodata">'+esc(e.message||"历史数据加载失败")+'</div></div>';
@@ -933,6 +991,26 @@ document.addEventListener("click",function(e){
  else if(t.classList.contains("detail-tab")){
   switchDetailTab(t.dataset.tab);
  }
+ else if(t.classList.contains("legend-item")&&t.dataset.probeId){
+  var pid = t.dataset.probeId;
+  if(S.hiddenProbes[pid]) delete S.hiddenProbes[pid];
+  else S.hiddenProbes[pid] = true;
+  renderPingChart();
+ }
+ else if(t.id==="pingToggleAll"){
+  var d = S.lastHistoryData;
+  if(d && Array.isArray(d.ping)){
+   var pids = [];
+   d.ping.forEach(function(p){if(pids.indexOf(p.task_id)<0)pids.push(p.task_id)});
+   var hiddenCount = Object.keys(S.hiddenProbes).filter(function(k){return S.hiddenProbes[k]}).length;
+   if(hiddenCount > 0){
+    S.hiddenProbes = {};
+   } else {
+    pids.forEach(function(id){S.hiddenProbes[id] = true});
+   }
+   renderPingChart();
+  }
+ }
  else if(t.id==="smoothToggle"||t.id==="netSmoothToggle"){
   S.smooth = !S.smooth;
   var txt = "削峰平滑: " + (S.smooth ? "开" : "关");
@@ -942,7 +1020,7 @@ document.addEventListener("click",function(e){
   loadHistory();
  }
  else if(t.id==="back"){var tip=document.getElementById("uptimeToast");if(tip)tip.classList.remove("show");go("/")}
- else if(t.id==="refresh"){
+ else if(t.id==="refresh"||t.id==="mrefresh"){
   var btn=t;
   btn.classList.add("spinning");
   var p1 = poll();
@@ -954,7 +1032,16 @@ document.addEventListener("click",function(e){
    btn.classList.remove("spinning");
   });
  }});
-$("#q").addEventListener("input",function(){S.q=this.value;renderList();});
+function onSearchInput(val){
+ S.q = val;
+ var q1 = $("#q"), q2 = $("#mq");
+ if(q1 && q1.value !== val) q1.value = val;
+ if(q2 && q2.value !== val) q2.value = val;
+ renderList();
+}
+var qEl = $("#q"), mqEl = $("#mq");
+if(qEl) qEl.addEventListener("input", function(){ onSearchInput(this.value); });
+if(mqEl) mqEl.addEventListener("input", function(){ onSearchInput(this.value); });
 
 /* ---------- 启动 ---------- */
 function boot(){
