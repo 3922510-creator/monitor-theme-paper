@@ -101,6 +101,14 @@ h1{font-size:18px;font-weight:600;margin:0;letter-spacing:0;overflow:hidden;text
 .item .r2{margin-top:6px;font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cc{display:inline-block;font:600 11px/1 ui-monospace,Consolas,monospace;font-size:12px;padding:2px 5px;border:1px solid var(--border);border-radius:3px;margin-right:6px;color:var(--text);background:var(--paper)}
 .meters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.item-traffic{margin-top:10px;font-size:11px;color:var(--muted)}
+.item-traffic-head{display:flex;justify-content:space-between;align-items:center;line-height:1.2}
+.item-traffic-head b{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}
+.item-traffic .bar{height:3px;background:var(--track);border-radius:2px;margin-top:5px;overflow:hidden}
+.item-traffic .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.item-traffic .bar i.warn{background:var(--warn)}
+.item-traffic .bar i.bad{background:var(--bad)}
+
 .uptime-card{border:1px solid var(--border);border-radius:4px;padding:12px 16px;margin-top:14px;background:var(--paper);position:relative}
 .uptime-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:8px}
 .uptime-title{font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px}
@@ -479,9 +487,21 @@ function renderList(){
   var m=mp(n),cpu=m?m.cpu:null,mem=m?ratio(m.mem_used,m.mem_total):null,disk=m?ratio(m.disk_used,m.disk_total):null;
   var st=n.online?'<span class="st"><span class="dot"></span>在线</span>':'<span class="st bad"><span class="dot off"></span>'+esc(ago(n.last_seen_ago))+'</span>';
   var sub=[n.os,n.group].filter(Boolean).join(" · ");
+  var lim=n.traffic_limit,used=num(n.month_used)?n.month_used:(num(n.month_rx)&&num(n.month_tx)?n.month_rx+n.month_tx:null);
+  var trafficHtml = "";
+  if (used !== null) {
+   var tfText = (lim > 0) ? (bytes(used) + ' <b>/ ' + bytes(lim) + '</b>') : (bytes(used) + ' <b>(不限)</b>');
+   var tfPct = (lim > 0) ? Math.min(100, used / lim * 100) : null;
+   trafficHtml = '<div class="item-traffic">'+
+    '<div class="item-traffic-head"><span>月流量</span><span>' + tfText + '</span></div>'+
+    (tfPct !== null ? '<div class="bar"><i class="' + barCls(tfPct) + '" style="width:' + tfPct + '%"></i></div>' : '') +
+   '</div>';
+  }
   h+='<button class="item'+(n.id===sid?' selected':'')+(n.online?'':' offline')+'" data-id="'+n.id+'"><div class="r1"><span class="name">'+esc(n.name)+'</span>'+st+'</div>'+
   '<div class="r2">'+(n.country?'<span class="cc">'+esc(n.country)+'</span>':'')+esc(sub)+'</div>'+
-  '<div class="meters">'+meter("CPU",cpu)+meter("内存",mem)+meter("磁盘",disk)+'</div></button>'});
+  '<div class="meters">'+meter("CPU",cpu)+meter("内存",mem)+meter("磁盘",disk)+'</div>'+
+  trafficHtml+
+  '</button>'});
  $("#list").innerHTML=h||'<div class="empty">'+(S.loaded?"没有符合条件的节点":"加载中")+'</div>';
  $("#listCount").textContent=v.length+" 台"}
 function infoRow(k,v){return v===""||v==null?"":'<div><span class="k">'+esc(k)+'</span><span class="val">'+esc(v)+'</span></div>'}
