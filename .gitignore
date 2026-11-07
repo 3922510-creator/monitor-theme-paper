@@ -1,3 +1,5 @@
 shots/
+theme.tar.gz
+node_modules/
 *.tmp
 *.bak

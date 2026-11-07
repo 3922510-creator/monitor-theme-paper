@@ -18,6 +18,14 @@ Paper 纸感主题 —— 专为 [monitor](https://github.com/monitor-probe) 打
 1. 填入 GitHub 仓库地址 `https://github.com/3922510-creator/monitor-theme-paper`
 2. 点击「从 GitHub 安装」即可一键启用。
 
+## 源码与开发构建
+
+本项目遵循 Web 原生标准（Vanilla HTML5 / CSS3 / ES2022），不引入庞大的前端框架或黑盒编译流：
+
+- **源码目录**：`src/index.html`（完整未压缩原生源码，包含所有交互、样式与渲染逻辑）
+- **语法校验**：`npm run check`（核对配置一致性、必要文件与 JS 语法）
+- **构建输出**：`npm run build`（同步输出至 `dist/index.html` 并打包为可供 hub 部署的 `theme.tar.gz`）
+
 ## 许可
 
 MIT License
