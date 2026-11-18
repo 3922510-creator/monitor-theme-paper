@@ -1,30 +1,29 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN" data-theme="light" data-accent="blue">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>探针</title>
 <link rel="icon" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>try{var t=localStorage.getItem("paper-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);var a=localStorage.getItem("paper-accent");if(a)document.documentElement.setAttribute("data-accent",a)}catch(e){}</script>
 <style>
-:root{--bg:#f4f5f7;--paper:#ffffff;--text:#2e3338;--muted:#828892;--border:#e2e5e9;--border-item:#adb5bd;--hover:#f7f8fa;--selected:#edf3f9;--accent:#2d639b;--accent-line:#d2deeb;--accent-surface:#f5f8fc;--ok:#3a9a64;--warn:#b8751e;--bad:#c24138;--track:#e8ecf1;color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg)}
-[data-theme=dark]{--bg:#14171a;--paper:#1c2024;--text:#dce0e5;--muted:#88919b;--border:#2a3036;--border-item:#49515a;--hover:#23282e;--selected:#222c38;--accent:#88b5e8;--accent-line:#2f3f52;--accent-surface:#1c2530;--ok:#52b788;--warn:#d49746;--bad:#d96b64;--track:#2a3036;color-scheme:dark}
+:root{--ok:#3a8a5c;--warn:#9a6014;--bad:#b8433a;color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg)}
+[data-theme=dark]{--ok:#5fb48a;--warn:#d39a4f;--bad:#de7a72;color-scheme:dark}
 
-/* 强调色主题方案 (低饱和柔和调) */
-html[data-accent="emerald"]{--accent:#1f7a59;--accent-line:#c5ebd8;--accent-surface:#f2faf6;--selected:#e1f5eb}
-html[data-theme="dark"][data-accent="emerald"]{--accent:#52b788;--accent-line:#234a38;--accent-surface:#182b22;--selected:#1e382b}
-
-html[data-accent="amber"]{--accent:#b86e1e;--accent-line:#fae1bf;--accent-surface:#fdf8f0;--selected:#fcf0df}
-html[data-theme="dark"][data-accent="amber"]{--accent:#dca457;--accent-line:#4f371b;--accent-surface:#2d2113;--selected:#3b2b18}
-
-html[data-accent="purple"]{--accent:#6e52a8;--accent-line:#e0d7f5;--accent-surface:#f7f4fc;--selected:#eee8fa}
-html[data-theme="dark"][data-accent="purple"]{--accent:#aa8fdc;--accent-line:#433261;--accent-surface:#281e3a;--selected:#34264d}
-
-html[data-accent="zinc"]{--accent:#3d444d;--accent-line:#d8dce2;--accent-surface:#f5f6f8;--selected:#eaedf2}
-html[data-theme="dark"][data-accent="zinc"]{--accent:#b0b8c4;--accent-line:#363d47;--accent-surface:#1f242b;--selected:#282f38}
-
-html[data-accent="rose"]{--accent:#b83a54;--accent-line:#f8d1da;--accent-surface:#fdf4f6;--selected:#fae4e9}
-html[data-theme="dark"][data-accent="rose"]{--accent:#d66d84;--accent-line:#54212e;--accent-surface:#30151c;--selected:#421b25}
+/* 强调色方案：每种强调色自带一套明暗底色（底色、纸面、边线、文字全部带同色相微染），切换后整页色温跟着变 */
+:root,html[data-accent="blue"]{--bg:#eaeef3;--paper:#fafbfd;--text:#17202b;--muted:#5c6570;--border:#d7dee7;--border-item:#afb9c6;--hover:#f2f4f8;--selected:#dce8f7;--accent:#1d5caf;--accent-line:#b7ceeb;--accent-surface:#ecf3fb;--track:#dde3eb}
+[data-theme=dark],html[data-theme="dark"][data-accent="blue"]{--bg:#0c1015;--paper:#131920;--text:#dce2ea;--muted:#959fac;--border:#232b37;--border-item:#3e4856;--hover:#19212c;--selected:#162841;--accent:#71aaf4;--accent-line:#213e64;--accent-surface:#101f32;--track:#232b37}
+html[data-accent="emerald"]{--bg:#eaf3f0;--paper:#fafdfc;--text:#172b24;--muted:#5c7069;--border:#d8e7e2;--border-item:#afc5be;--hover:#f2f7f6;--selected:#ddf6ed;--accent:#0d7351;--accent-line:#b9e9d9;--accent-surface:#edfaf6;--track:#deeae6}
+html[data-theme="dark"][data-accent="emerald"]{--bg:#0d1412;--paper:#141f1b;--text:#dceae5;--muted:#95aca4;--border:#233630;--border-item:#3e554e;--hover:#192b25;--selected:#174032;--accent:#59cfa8;--accent-line:#23614d;--accent-surface:#123126;--track:#233630}
+html[data-accent="amber"]{--bg:#f5efe8;--paper:#fdfcfa;--text:#2b2217;--muted:#70675c;--border:#ebe0d4;--border-item:#cbbbaa;--hover:#f9f5f1;--selected:#fcebd6;--accent:#9c590d;--accent-line:#f6d4ac;--accent-surface:#fef4e9;--track:#eee5db}
+html[data-theme="dark"][data-accent="amber"]{--bg:#17110b;--paper:#231a10;--text:#eae3dc;--muted:#aca195;--border:#3b2e1e;--border-item:#5c4b38;--hover:#302315;--selected:#4a2d0d;--accent:#f0a44c;--accent-line:#714514;--accent-surface:#38230a;--track:#3b2e1e}
+html[data-accent="purple"]{--bg:#ede9f3;--paper:#fbfafd;--text:#1e172b;--muted:#635c70;--border:#ddd7e8;--border-item:#b7aec7;--hover:#f4f2f8;--selected:#e6dbf8;--accent:#6837be;--accent-line:#cab6ed;--accent-surface:#f2ecfb;--track:#e2ddeb}
+html[data-theme="dark"][data-accent="purple"]{--bg:#0f0c15;--paper:#181320;--text:#e1dcea;--muted:#9e95ac;--border:#2a2237;--border-item:#463d57;--hover:#20182d;--selected:#251443;--accent:#b591f3;--accent-line:#391e66;--accent-surface:#1c0f33;--track:#2a2237}
+html[data-accent="zinc"]{--bg:#edeeef;--paper:#fbfbfc;--text:#171e2b;--muted:#5c6370;--border:#dddfe1;--border-item:#b8b9bd;--hover:#f4f5f5;--selected:#e6e8ec;--accent:#373b43;--accent-line:#cccfd7;--accent-surface:#f2f3f5;--track:#e3e4e6}
+html[data-theme="dark"][data-accent="zinc"]{--bg:#101011;--paper:#18191b;--text:#dce1ea;--muted:#959dac;--border:#2a2c2f;--border-item:#47494d;--hover:#202224;--selected:#272a30;--accent:#c8cbd0;--accent-line:#3b4049;--accent-surface:#1e2025;--track:#2a2c2f}
+html[data-accent="rose"]{--bg:#f4e9ec;--paper:#fdfafb;--text:#2b171c;--muted:#705c61;--border:#e8d6da;--border-item:#c7adb3;--hover:#f8f2f3;--selected:#f9dae1;--accent:#b52648;--accent-line:#eeb4c1;--accent-surface:#fcebef;--track:#ecdde0}
+html[data-theme="dark"][data-accent="rose"]{--bg:#150c0e;--paper:#211216;--text:#eadcdf;--muted:#ac959b;--border:#382127;--border-item:#583c42;--hover:#2d171d;--selected:#44121e;--accent:#f17e99;--accent-line:#681c2e;--accent-surface:#340e17;--track:#382127}
 
 *{box-sizing:border-box}
 body{margin:0;font-size:14px;min-height:100dvh}
@@ -40,7 +39,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
  body{display:flex;flex-direction:column}
  .wrap{max-width:1400px;width:100%;margin:0 auto;padding:10px 16px;height:100dvh;display:flex;flex-direction:column;box-sizing:border-box}
  .notice{margin:0 0 8px;padding:8px 14px;background:var(--accent-surface);border:1px solid var(--accent-line);border-radius:6px;color:var(--accent);font-size:12px;white-space:pre-wrap;word-break:break-word;flex-shrink:0}
- .app{background:var(--paper);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;box-shadow:0 4px 20px rgba(0,0,0,.03)}
+ .app{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;box-shadow:0 6px 24px rgba(0,0,0,.05)}
  .app-header{flex-shrink:0;min-height:52px;padding:0 24px}
  .toolbar{flex-shrink:0;min-height:48px;padding:0 16px 0 20px}
  .layout{flex:1;min-height:0;display:grid;grid-template-columns:360px minmax(0,1fr);height:100%}
@@ -223,7 +222,7 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
  .wrap{padding:0;margin:0;max-width:none}
  .notice{margin:0;border-radius:0;border-left:0;border-right:0}
  .app{border:0;border-radius:0;box-shadow:none}
- .app-header{padding:8px 14px;position:sticky;top:0;background:var(--paper);z-index:10;min-height:44px}
+ .app-header{padding:8px 14px;position:sticky;top:0;background:var(--paper);z-index:10;min-height:44px;border-top:3px solid var(--accent)}
  .brand{gap:10px}
  .brand h1{font-size:18px;font-weight:650}
  .m-badge{display:inline-flex;align-items:center;gap:4px;padding:1px 6px;background:var(--selected);border:1px solid var(--border);border-radius:10px;font-size:10px;color:var(--text);font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;white-space:nowrap}
@@ -320,10 +319,8 @@ var SHORT="paper";
 var ICON={
  moon:'<svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>',
  sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></svg>',
- auto:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>',
- back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'
+back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'
 };
-ICON.light=ICON.sun;ICON.dark=ICON.moon;
 var S={nodes:[],admin:false,me:{history_days:7,site_name:""},cfg:{notice:"",mode:"auto",accent:"blue"},group:-1,q:"",routeId:null,loaded:false,hours:6,detailId:null,seq:0,lastFrame:0,ws:null,wsFails:0,err:"",cpuScale:"fit",memScale:"fit",detailTab:"res",smooth:true,statusMap:{},statusAt:{},loadingStatus:{},hiddenProbes:{},lastHistoryData:null,listScroll:0};
 
 /* ---------- 工具 ---------- */
@@ -357,19 +354,20 @@ function api(path){return fetch(path,{credentials:"same-origin"}).then(function(
 
 /* ---------- 主题 ---------- */
 var MQ=window.matchMedia?matchMedia("(prefers-color-scheme:dark)"):null;
-var MODE_LB={auto:"跟随系统",light:"浅色",dark:"深色"},MODES=["auto","light","dark"];
-function themeMode(){var s=lsGet("paper-theme");return MODES.indexOf(s)>=0?s:S.cfg.mode}
-function applyAccent(acc){document.documentElement.setAttribute("data-accent",acc||S.cfg.accent||"blue")}
+/* 默认值：站点配置为 auto 时跟随系统；用户手选的明暗存本地，与默认值一致时清掉，继续跟随系统 */
+function baseTheme(){return S.cfg.mode==="light"||S.cfg.mode==="dark"?S.cfg.mode:(MQ&&MQ.matches?"dark":"light")}
+function userTheme(){var s=lsGet("paper-theme");return s==="light"||s==="dark"?s:null}
+var ACCENTS=["blue","emerald","amber","purple","zinc","rose"];
+function applyAccent(acc){var a=acc||S.cfg.accent;if(ACCENTS.indexOf(a)<0)a="blue";document.documentElement.setAttribute("data-accent",a)}
 function applyTheme(){
- var mode=themeMode(),t=mode==="auto"?(MQ&&MQ.matches?"dark":"light"):mode;
+ var t=userTheme()||baseTheme();
  var root=document.documentElement,changed=root.getAttribute("data-theme")!==t;
  root.setAttribute("data-theme",t);applyAccent(S.cfg.accent);
- var b=$("#themeBtn"),lb="配色："+MODE_LB[mode]+"（点击切换）";
- b.innerHTML=ICON[mode];b.title=lb;b.setAttribute("aria-label",lb);
+ var b=$("#themeBtn"),lb=t==="dark"?"切换为浅色":"切换为深色";
+ b.innerHTML=t==="dark"?ICON.sun:ICON.moon;b.title=lb;b.setAttribute("aria-label",lb);
  if(changed)repaintCharts()}
-/* 三态循环；回到站点默认值时清掉本地偏好，管理员以后改默认配色才能生效 */
-$("#themeBtn").onclick=function(){var next=MODES[(MODES.indexOf(themeMode())+1)%MODES.length];if(next===S.cfg.mode)lsDel("paper-theme");else lsSet("paper-theme",next);applyTheme()};
-if(MQ){var onMQ=function(){if(themeMode()==="auto")applyTheme()};if(MQ.addEventListener)MQ.addEventListener("change",onMQ);else if(MQ.addListener)MQ.addListener(onMQ)}
+$("#themeBtn").onclick=function(){var next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";if(next===baseTheme())lsDel("paper-theme");else lsSet("paper-theme",next);applyTheme()};
+if(MQ){var onMQ=function(){if(!userTheme())applyTheme()};if(MQ.addEventListener)MQ.addEventListener("change",onMQ);else if(MQ.addListener)MQ.addListener(onMQ)}
 
 /* ---------- 数据与分组 ---------- */
 function groups(){var g=[],seen={};S.nodes.forEach(function(n){var k=n.group||"";if(k&&!seen[k]){seen[k]=1;g.push(k)}});return g}
@@ -910,7 +908,7 @@ function renderHistory(){
   /* --- 3. 网络监控：实时带宽 (青川蓝 / 豆青绿 / 雅致淡紫与麦金) --- */
   var rxSer=ser("下行","net_rx"),txSer=ser("上行","net_tx");
   var rxPeakSer=ser("下行峰值","net_rx_max"),txPeakSer=ser("上行峰值","net_tx_max");
-  rxSer.color = isDark ? "#88b5e8" : "#2d639b";
+  rxSer.color = cssv("--accent"); // 主曲线跟随强调色，换色后图表也一起变
   txSer.color = isDark ? "#52b788" : "#2e8555";
   rxPeakSer.color = isDark ? "#9faae0" : "#5a68a5";
   txPeakSer.color = isDark ? "#dca457" : "#b86e1e";
@@ -1068,7 +1066,7 @@ function boot(){
   var c=r[0]||{},me=r[1]||{};
   if(typeof c.notice==="string")S.cfg.notice=c.notice;
   if(c.mode==="auto"||c.mode==="light"||c.mode==="dark")S.cfg.mode=c.mode;
-  if(typeof c.accent==="string")S.cfg.accent=c.accent;
+  if(ACCENTS.indexOf(c.accent)>=0){S.cfg.accent=c.accent;lsSet("paper-accent",c.accent)}
   applyAccent(S.cfg.accent);
   if(num(me.history_days))S.me.history_days=me.history_days;
   var name=(typeof me.site_name==="string"?me.site_name:"").replace(/\s+/g," ").trim();
