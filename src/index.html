@@ -45,7 +45,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
  .layout{flex:1;min-height:0;display:grid;grid-template-columns:360px minmax(0,1fr);height:100%}
  .list-col{height:100%;overflow-y:auto;border-right:1px solid var(--border);position:static;scrollbar-width:none;-ms-overflow-style:none}
  .list-col::-webkit-scrollbar{display:none}
- .detail{height:100%;overflow-y:auto;padding:24px 32px 32px;min-width:0;scrollbar-width:none;-ms-overflow-style:none}
+ .detail{height:100%;overflow-y:auto;padding:18px 28px 28px;min-width:0;scrollbar-width:none;-ms-overflow-style:none}
  .detail::-webkit-scrollbar{display:none}
  .footer{flex-shrink:0}
 }
@@ -108,31 +108,32 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
 .item-traffic .bar i.warn{background:var(--warn)}
 .item-traffic .bar i.bad{background:var(--bad)}
 
-.uptime-card{border:1px solid var(--border);border-radius:4px;padding:12px 16px;margin-top:14px;background:var(--paper);position:relative}
-.uptime-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:8px}
+.uptime-card{border:1px solid var(--border);border-radius:4px;padding:10px 14px;margin-top:12px;background:var(--paper);position:relative}
+.uptime-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:6px}
 .uptime-title{font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px}
 .uptime-title .dot{width:6px;height:6px}
 .uptime-rate{font:600 13px ui-monospace,Consolas,monospace;color:var(--accent)}
 .uptime-bars-wrap{position:relative;width:100%;touch-action:none;-webkit-tap-highlight-color:transparent;cursor:crosshair;padding:4px 0}
-.status-bars{display:flex;align-items:flex-end;gap:3px;height:24px;width:100%;pointer-events:none}
-.status-bar{flex:1;height:22px;background:var(--track);border-radius:2px;position:relative;transition:opacity .15s}
+.status-bars{display:flex;align-items:flex-end;gap:3px;height:22px;width:100%;pointer-events:none}
+.status-bar{flex:1;height:20px;background:var(--track);border-radius:2px;position:relative;transition:opacity .15s}
 .status-bar.up,.ut-dot.up{background:var(--ok)}
 .status-bar.warn,.ut-dot.warn{background:var(--warn)}
 .status-bar.down,.ut-dot.down{background:var(--bad)}
-.ut-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.ut-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
 .ut-t{font-weight:600}
 .ut-r{margin-top:2px;display:flex;align-items:center;gap:6px}
-.status-bar.empty{background:var(--track);opacity:.35}
+.status-bar.blank{background:var(--track);opacity:.45}
 .status-bar.active{opacity:1;filter:brightness(1.25);transform:scaleY(1.15)}
 .status-bars.dim .status-bar:not(.active){opacity:.4}
 .uptime-cursor{position:absolute;top:0;bottom:0;width:2px;background:var(--accent);pointer-events:none;display:none;z-index:2;border-radius:1px}
-.uptime-tooltip{position:absolute;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--paper);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:4px;font-size:12px;box-shadow:0 4px 16px rgba(0,0,0,.15);pointer-events:none;white-space:nowrap;display:none;z-index:3;line-height:1.4}
+.uptime-tooltip{position:absolute;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--paper);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:4px;font-size:12px;box-shadow:0 4px 16px rgba(0,0,0,.15);pointer-events:none;white-space:nowrap;display:none;z-index:5;line-height:1.4}
 .uptime-tooltip::after{content:"";position:absolute;top:100%;left:50%;margin-left:-4px;border:4px solid transparent;border-top-color:var(--border)}
-.uptime-foot{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}
+.uptime-foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:5px}
 
 .meter{font-size:12px;color:var(--muted)}
 .meter b{font-weight:400;color:var(--text);margin-left:4px;font-variant-numeric:tabular-nums}
 .bar{height:3px;background:var(--track);border-radius:2px;margin-top:5px;overflow:hidden}
+.bar.muted-bar{opacity:.25}
 .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
 .bar i.warn{background:var(--warn)}
 .bar i.bad{background:var(--bad)}
@@ -140,15 +141,15 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
 .empty{padding:60px 20px;text-align:center;color:var(--muted);font-size:13px}
 /* detail handled by media queries */
 .d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.d-head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex-shrink:0}
-.d-agent{font:500 11px/1.2 ui-monospace,Consolas,monospace;color:var(--muted);background:var(--track);padding:2px 7px;border-radius:3px}
+.d-head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.d-agent{font:500 12px/1.2 ui-monospace,Consolas,monospace;color:var(--muted);background:var(--track);padding:2px 7px;border-radius:3px}
 
 .d-head h2{margin:0;font-size:20px;font-weight:600;letter-spacing:0;overflow-wrap:anywhere}
 .d-time{font-size:12px;color:var(--muted);white-space:nowrap}
-.d-sub{margin-top:8px;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.d-sub{margin-top:6px;font-size:12px;color:var(--muted);overflow-wrap:anywhere}
 .back{display:none;align-items:center;gap:6px;min-height:44px;padding:0 10px 0 4px;margin:0 0 6px -4px;border-radius:4px;font-size:13px;color:var(--accent)}
-.stats{margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--accent-surface);border:1px solid var(--accent-line);border-radius:4px}
-.stat{padding:16px 18px;min-width:0;border-right:1px solid var(--accent-line)}
+.stats{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--accent-surface);border:1px solid var(--accent-line);border-radius:4px}
+.stat{padding:13px 16px;min-width:0;border-right:1px solid var(--accent-line)}
 .stat:last-child{border-right:0}
 .stat .lb{font-size:12px;color:var(--muted)}
 .stat .v{margin-top:6px;font:500 26px/1.2 ui-monospace,"SFMono-Regular",Consolas,monospace;color:var(--accent);letter-spacing:-.5px;white-space:nowrap}
@@ -169,22 +170,25 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
 .info.odd div:last-child{border-bottom:0;border-right:0;grid-column:1/-1}
 .info dt,.info span.k{color:var(--muted);white-space:nowrap}
 .info span.val{text-align:right;overflow-wrap:anywhere;min-width:0}
-.ranges{display:flex;gap:4px;flex-wrap:wrap}
-.range{min-height:44px;min-width:44px;padding:0 12px;border-radius:4px;font-size:13px;color:var(--muted);border:1px solid transparent}
-.range.active{color:var(--accent);border-color:var(--accent-line);background:var(--accent-surface)}
+.ranges{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.range{min-height:28px;min-width:36px;padding:0 9px;border-radius:4px;font-size:12px;color:var(--muted);border:1px solid transparent}
+.range.active{color:var(--accent);border-color:var(--accent-line);background:var(--accent-surface);font-weight:500}
 .chart-card{border:1px solid var(--border);border-radius:4px;padding:14px 16px 12px;margin-bottom:12px}
 .chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px;flex-wrap:wrap}
-.chart-header h3{margin:0;font-size:13px;font-weight:600}
+.chart-header h3{margin:0;font-size:13px;font-weight:600;display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.chart-sub{font-size:11px;font-weight:400;color:var(--muted)}
 .chart-toggles{display:inline-flex;border:1px solid var(--border);border-radius:4px;padding:1px;background:var(--bg)}
-.chart-toggle{padding:2px 8px;font-size:11px;min-height:22px;border-radius:3px;color:var(--muted);cursor:pointer;background:transparent;border:0;line-height:1.2}
+.chart-toggle{padding:2px 8px;font-size:12px;min-height:24px;border-radius:3px;color:var(--muted);cursor:pointer;background:transparent;border:0;line-height:1.2}
 .chart-toggle.active{color:var(--accent);background:var(--paper);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06)}
-.sec-left{display:flex;align-items:center;gap:12px}
-.smooth-btn{min-height:24px;border:1px solid var(--border)}
+.smooth-btn{min-height:28px;padding:0 9px;font-size:12px;border:1px solid var(--border);border-radius:4px;background:transparent;color:var(--muted)}
+.smooth-btn.active{color:var(--accent);border-color:var(--accent-line);background:var(--accent-surface);font-weight:500;box-shadow:none}
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.detail-tabs{display:flex;gap:20px;border-bottom:1px solid var(--border);margin:20px 0 0}
-.detail-tab{padding:8px 4px 10px;border-bottom:2px solid transparent;font-size:14px;color:var(--muted);cursor:pointer;font-weight:500;border-radius:0;min-height:36px}
+.detail-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--border);margin:16px 0 12px}
+.detail-tabs{display:flex;gap:20px;align-self:stretch}
+.detail-tab{padding:8px 4px 10px;margin-bottom:-1px;border-bottom:2px solid transparent;font-size:14px;color:var(--muted);cursor:pointer;font-weight:500;border-radius:0;min-height:36px}
 .detail-tab:hover{color:var(--text);background:transparent}
 .detail-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.detail-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-bottom:6px}
 .tab-content{display:none}
 .tab-content.active{display:block}
 @media(max-width:980px){.charts-grid{grid-template-columns:1fr}}
@@ -195,16 +199,19 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
 .legend-item.off{opacity:.35;text-decoration:line-through}
 .legend-item.off b{color:var(--muted)}
 .legend-item.off .loss-badge{opacity:.5}
+.lg-name,.lg-meta{display:inline-flex;align-items:center}
 .legend i,.legend-item i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;flex-shrink:0}
 .legend b,.legend-item b{font-weight:400;color:var(--text);margin-left:5px;font-variant-numeric:tabular-nums}
-.loss-badge{font-size:11px;font-weight:500;padding:0 4px;border-radius:2px;margin-left:6px;font-variant-numeric:tabular-nums}
+.loss-badge{font-size:12px;font-weight:500;padding:0 5px;border-radius:3px;margin-left:6px;font-variant-numeric:tabular-nums}
 .loss-badge.zero{color:var(--muted);background:var(--track);opacity:.8}
 .loss-badge.warn{color:var(--warn);background:rgba(220,164,87,.15)}
 .loss-badge.bad{color:var(--bad);background:rgba(214,109,109,.15)}
 .tip .loss{color:var(--muted)}
+.tip .loss.warn{color:var(--warn)}
 .tip .loss.bad{color:var(--bad)}
 
 .chart{position:relative;height:170px;touch-action:pan-y}
+#pingChartCard .chart{height:200px}
 .chart canvas{width:100%;height:100%;display:block}
 .tip{position:absolute;top:6px;pointer-events:none;background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:7px 10px;font-size:12px;line-height:1.6;box-shadow:0 2px 8px rgba(0,0,0,.12);white-space:nowrap;display:none;z-index:2}
 .tip .t{color:var(--muted)}
@@ -225,10 +232,10 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
  .app-header{padding:8px 14px;position:sticky;top:0;background:var(--paper);z-index:10;min-height:44px;border-top:3px solid var(--accent)}
  .brand{gap:10px}
  .brand h1{font-size:18px;font-weight:650}
- .m-badge{display:inline-flex;align-items:center;gap:4px;padding:1px 6px;background:var(--selected);border:1px solid var(--border);border-radius:10px;font-size:10px;color:var(--text);font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;white-space:nowrap}
- .m-badge .dot{width:4.5px;height:4.5px}
- .m-badge b{color:var(--accent);font-weight:600;font-size:11px}
- .m-badge small{color:var(--muted);font-weight:400}
+ .m-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;background:var(--selected);border:1px solid var(--border);border-radius:10px;font-size:12px;color:var(--text);font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;white-space:nowrap}
+ .m-badge .dot{width:5px;height:5px}
+ .m-badge b{color:var(--accent);font-weight:600;font-size:12px}
+ .m-badge small{color:var(--muted);font-weight:400;font-size:12px}
  .header-right{gap:6px}
  .summary-inline{display:none}
  .toolbar{padding:0 12px;display:flex;align-items:center;min-height:42px;height:42px;border-bottom:1px solid var(--border)}
@@ -257,21 +264,32 @@ h1{font-size:18px;font-weight:650;margin:0;letter-spacing:-0.2px;overflow:hidden
  .stat .v.two{font-size:13px}
  .stat:nth-child(2){border-right:0}
  .stat:nth-child(-n+2){border-bottom:1px solid var(--accent-line)}
- .detail-tabs{margin:16px 0 0;gap:16px}
+ .uptime-bars-wrap .status-bars{height:18px;gap:2px}
+ .uptime-bars-wrap .status-bar{height:16px}
+ .detail-bar{border-bottom:0;margin:14px 0 10px;gap:8px}
+ .detail-tabs{width:100%;gap:18px;border-bottom:1px solid var(--border)}
  .detail-tab{font-size:13px;padding:8px 2px}
- .sec-title{margin:22px 0 10px;font-size:12px}
- .sec-title.plain{margin-top:22px}
+ .detail-controls{width:100%;justify-content:space-between;padding-bottom:0;gap:6px}
+ .sec-title{margin:20px 0 10px;font-size:12px}
+ .sec-title.plain{margin-top:20px}
  .chart-card{padding:12px 12px 10px;margin-bottom:10px}
+ .chart-sub{display:none}
  .chart{height:150px}
+ #pingChartCard .chart{height:175px}
  .info{grid-template-columns:1fr}
  .info div{padding:9px 12px;font-size:12px}
  .info div:nth-child(odd){border-right:0}
  .info div:nth-last-child(2){border-bottom:1px solid var(--border)}
  .traffic{padding:12px 14px}
  .ranges{gap:2px}
- .range{min-height:40px;min-width:40px;padding:0 8px;font-size:12px}
- .chart-toggle,.smooth-btn{min-height:32px;padding:0 10px;font-size:12px}
- .legend-item{min-height:32px}
+ .range{min-height:30px;min-width:34px;padding:0 7px;font-size:12px}
+ .chart-toggle,.smooth-btn{min-height:30px;padding:0 8px;font-size:12px}
+ .ping-legend{flex-direction:column;gap:4px}
+ .ping-legend .legend-item{width:100%;display:flex;justify-content:space-between;padding:4px 6px;min-height:30px;border-radius:4px}
+ .ping-legend .lg-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .ping-legend .lg-meta{flex-shrink:0;gap:6px}
+ .ping-legend .lg-meta b{min-width:48px;text-align:right;margin-left:0}
+ .ping-legend .loss-badge{margin-left:0;min-width:74px;text-align:center}
  .footer{padding:12px 16px}
 }
 </style>
@@ -395,7 +413,7 @@ function renderFilters(){
  if(g.length&&ungrouped)h+='<button class="filter'+(S.group===-2?' active':'')+'" data-g="-2">未分组<span>'+ungrouped+'</span></button>';
  $("#filters").style.display=g.length?"":"none";
  setHTML($("#filters"),h)}
-function meter(label,p){return'<div class="meter">'+label+'<b>'+esc(pct(p))+'</b><div class="bar"><i class="'+(num(p)?barCls(p):"")+'" style="width:'+(num(p)?p:0)+'%"></i></div></div>'}
+function meter(label,p){return'<div class="meter">'+label+'<b>'+esc(pct(p))+'</b><div class="bar'+(num(p)?"":" muted-bar")+'"><i class="'+(num(p)?barCls(p):"")+'" style="width:'+(num(p)?p:0)+'%"></i></div></div>'}
 
 
 /* ---------- 详情页服务可用率状态卡片 (过去 24 小时 / 48 柱滑动跟随弹窗) ---------- */
@@ -407,7 +425,7 @@ function renderUptimeCard(nodeId, online) {
   if (Date.now() - (S.statusAt[nodeId] || 0) > 30000) loadNodeStatus(nodeId);
   var emptyBars = "";
   for (var i = 0; i < 48; i++) {
-   emptyBars += '<i class="status-bar ' + (online ? 'up' : 'empty') + '" style="opacity:' + (online ? 0.35 : 0.2) + '"></i>';
+   emptyBars += '<i class="status-bar ' + (online ? 'up' : 'blank') + '" style="opacity:' + (online ? 0.35 : 0.2) + '"></i>';
   }
   return '<div class="uptime-card" id="uptimeCard"><div class="uptime-head"><span class="uptime-title"><span class="dot ' + (online?'':'off') + '"></span>服务可用性 (过去 24 小时)</span><span class="uptime-rate">加载中</span></div><div class="uptime-bars-wrap" id="uptimeWrap"><div class="status-bars">' + emptyBars + '</div></div><div class="uptime-foot"><span>24 小时前</span><span>现在</span></div></div>';
  }
@@ -578,7 +596,7 @@ function switchDetailTab(tab){
  panes.forEach(function(p){p.classList.toggle("active",p.id==="tab-"+tab)});
  redrawCharts();
 }
-function smoothBtn(id){return'<button class="chart-toggle smooth-btn" id="'+id+'" type="button">削峰平滑: '+(S.smooth?"开":"关")+'</button>'}
+function smoothBtn(id){return'<button class="chart-toggle smooth-btn'+(S.smooth?' active':'')+'" id="'+id+'" type="button">削峰平滑: '+(S.smooth?"开":"关")+'</button>'}
 function renderDetail(){
  var id=selId(),n=id===null?null:find(id),box=$("#detail");
  $("#app").classList.toggle("m-detail",S.routeId!==null&&!!n);
@@ -590,17 +608,21 @@ function renderDetail(){
   charts=[];
   box._h=null;
   box.innerHTML='<div id="dTop"></div><div id="dUptime"></div>'+
-   '<nav class="detail-tabs">'+
-    '<button class="detail-tab'+(S.detailTab==="res"?' active':'')+'" data-tab="res" type="button">系统资源</button>'+
-    '<button class="detail-tab'+(S.detailTab==="net"?' active':'')+'" data-tab="net" type="button">网络监控</button>'+
-   '</nav>'+
+   '<div class="detail-bar">'+
+    '<nav class="detail-tabs">'+
+     '<button class="detail-tab'+(S.detailTab==="res"?' active':'')+'" data-tab="res" type="button">系统资源</button>'+
+     '<button class="detail-tab'+(S.detailTab==="net"?' active':'')+'" data-tab="net" type="button">网络监控</button>'+
+    '</nav>'+
+    '<div class="detail-controls">'+
+     smoothBtn("smoothToggle")+
+     '<div class="ranges" id="ranges"></div>'+
+    '</div>'+
+   '</div>'+
    '<div class="tab-content'+(S.detailTab==="res"?' active':'')+'" id="tab-res">'+
-    '<div class="sec-title plain"><div class="sec-left"><span>资源监控曲线</span>'+smoothBtn("smoothToggle")+'</div><div class="ranges" id="ranges"></div></div>'+
     '<div id="dResCharts" class="charts-grid"></div>'+
     '<div id="dResInfo"></div>'+
    '</div>'+
    '<div class="tab-content'+(S.detailTab==="net"?' active':'')+'" id="tab-net">'+
-    '<div class="sec-title plain"><div class="sec-left"><span>网络速率走势</span>'+smoothBtn("netSmoothToggle")+'</div><div class="ranges" id="netRanges"></div></div>'+
     '<div id="dNetCharts"></div>'+
     '<div id="dNetInfo"></div>'+
    '</div>';
@@ -615,8 +637,7 @@ function renderRanges(){
  if(hs.indexOf(S.hours)<0)S.hours=hs.indexOf(6)>=0?6:hs[0];
  function lb(h){return h<=24||h%24?h+" 小时":(h/24)+" 天"}
  var html=hs.map(function(h){return'<button class="range'+(h===S.hours?' active':'')+'" data-h="'+h+'" type="button">'+lb(h)+'</button>'}).join("");
- setHTML($("#ranges"),html);
- setHTML($("#netRanges"),html)}
+ setHTML($("#ranges"),html)}
 function renderAll(){
  renderSummary();renderFilters();renderList();renderDetail();
  var on=S.nodes.filter(function(n){return n.online}).length;
@@ -643,7 +664,8 @@ function despike(pts, windowSize) {
   var devs = vals.map(function(v){return Math.abs(v - med)}).sort(function(a,b){return a-b});
   var mad = devs[Math.floor(devs.length / 2)] || 1e-6;
   var z = Math.abs(p[1] - med) / (1.4826 * mad);
-  res.push([p[0], z > 3.8 ? med : p[1]]);
+  var val = z > 3.8 ? med : p[1];
+  res.push(p.length > 2 ? [p[0], val, p[2]] : [p[0], val]);
  }
  return res;
 }
@@ -659,7 +681,8 @@ function movAvg(pts, w) {
   for (var k = start; k < end; k++) {
    if (num(pts[k][1])) { sum += pts[k][1]; count++; }
   }
-  res.push([p[0], count > 0 ? (sum / count) : p[1]]);
+  var val = count > 0 ? (sum / count) : p[1];
+  res.push(p.length > 2 ? [p[0], val, p[2]] : [p[0], val]);
  }
  return res;
 }
@@ -704,7 +727,24 @@ var PAL={light:["#2d639b","#2e8555","#b86e1e","#b83a3a","#6e52a8","#1f7a78"],dar
 function palette(){return PAL[document.documentElement.getAttribute("data-theme")==="dark"?"dark":"light"]}
 function cssv(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
 function niceMax(v){if(!(v>0))return 1;var e=Math.pow(10,Math.floor(Math.log10(v))),f=v/e;return(f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*e}
-function makeChart(host,cfg){
+/* 1024 进制友好上限：四等分后 Y 轴刻度落在整 KB/MB 或 .5 上，不出现 1.91MB/977KB 类碎数 */
+function niceBytesMax(v){
+ if(!(v>0))return 1024;
+ var u=1;while(v>=u*1024)u*=1024;
+ var f=v/u,steps=[1,2,4,8,10,12,16,20,32,40,64,80,100,128,160,200,256,320,400,512,640,800,1024];
+ for(var i=0;i<steps.length;i++)if(f<=steps[i])return steps[i]*u;
+ return 1024*u;
+}
+function axisBytes(v){
+ if(!num(v)||v<=0)return"0";
+ var u=["B","KB","MB","GB","TB","PB"],i=0;
+ while(v>=1024&&i<u.length-1){v/=1024;i++}
+ var s=v>=100||i===0?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2);
+ s=s.replace(/\.?0+$/,"");
+ return s+u[i];
+}
+function swapContent(el,frag){if(el.replaceChildren)el.replaceChildren(frag);else{el.innerHTML="";el.appendChild(frag)}}
+function makeChart(host,cfg,defer){
  var cv=document.createElement("canvas"),tip=document.createElement("div");tip.className="tip";
  host.appendChild(cv);host.appendChild(tip);
  var c={host:host,cv:cv,tip:tip,cfg:cfg,hx:null};charts.push(c);
@@ -712,7 +752,7 @@ function makeChart(host,cfg){
  cv.addEventListener("pointermove",function(e){c.hx=e.clientX-cv.getBoundingClientRect().left;drawChart(c)});
  cv.addEventListener("pointerleave",function(){c.hx=null;drawChart(c)});
  cv.addEventListener("pointerup",function(){setTimeout(function(){c.hx=null;drawChart(c)},2500)});
- drawChart(c);return c}
+ if(!defer)drawChart(c);return c}
 function redrawCharts(){charts=charts.filter(function(c){return document.body.contains(c.host)});charts.forEach(drawChart)}
 /* 序列颜色随明暗主题取值，切换主题时要用缓存数据整卡重建，而不只是重画 */
 function repaintCharts(){if(S.lastHistoryData)renderHistory();else redrawCharts()}
@@ -721,32 +761,90 @@ function drawChart(c){
  var cfg=c.cfg,cv=c.cv,W=cv.clientWidth,H=cv.clientHeight;if(!W||!H)return;
  var dpr=window.devicePixelRatio||1;cv.width=W*dpr;cv.height=H*dpr;
  var g=cv.getContext("2d");g.scale(dpr,dpr);
- var muted=cssv("--muted"),border=cssv("--border"),pal=palette();
- var L=46,R=8,T=8,B=22,pw=W-L-R,ph=H-T-B,t0=Infinity,t1=-Infinity,mx=-Infinity,mn=Infinity;
- cfg.series.forEach(function(s){s.pts.forEach(function(p){if(p[0]<t0)t0=p[0];if(p[0]>t1)t1=p[0];if(num(p[1])){if(p[1]>mx)mx=p[1];if(p[1]<mn)mn=p[1]}})});
+ var muted=cssv("--muted"),border=cssv("--border"),accent=cssv("--accent");
+ var t0=Infinity,t1=-Infinity,mx=-Infinity,mn=Infinity,hasLoss=false;
+ cfg.series.forEach(function(s){
+  s.pts.forEach(function(p){
+   if(p[0]<t0)t0=p[0];if(p[0]>t1)t1=p[0];
+   if(num(p[1])){if(p[1]>mx)mx=p[1];if(p[1]<mn)mn=p[1]}
+   if(cfg.showLoss&&num(p[2])&&p[2]>0)hasLoss=true;
+  });
+ });
  if(!isFinite(t0)||t1<=t0){return}
  if(mx===-Infinity)mx=1;if(mn===Infinity)mn=0;
+ var L=46,R=hasLoss?38:8,T=8,B=22,pw=W-L-R,ph=H-T-B;
  var top,base=0;
  if(cfg.base!==undefined){
   base=cfg.base;top=cfg.max;
  }else if(cfg.max!==undefined){
   top=cfg.max;base=cfg.min!==undefined?cfg.min:0;
  }else{
-  top=niceMax(mx*1.08||1);base=0;
+  top=(cfg.niceMax||niceMax)(mx*1.08||1);base=0;
  }
  if(top<=base)top=base+1;
- var rng=top-base;
- function X(t){return L+(t-t0)/(t1-t0)*pw}
+ var rng=top-base,span=t1-t0;
+ function X(t){return L+(t-t0)/span*pw}
  function Y(v){var clamped=Math.max(base,Math.min(v,top));return T+ph-(clamped-base)/rng*ph}
  g.font="12px -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif";g.lineWidth=1;
- g.fillStyle=muted;g.textAlign="right";g.textBaseline="middle";g.strokeStyle=border;
- for(var i=0;i<=4;i++){var v=base+rng*i/4,y=Math.round(Y(v))+.5;g.beginPath();g.moveTo(L,y);g.lineTo(W-R,y);g.stroke();g.fillText(cfg.axis(v),L-6,y)}
+ var isDark=document.documentElement.getAttribute("data-theme")==="dark";
+ g.fillStyle=muted;g.textBaseline="middle";g.strokeStyle=border;
+ for(var i=0;i<=4;i++){
+  var v=base+rng*i/4,y=Math.round(Y(v))+.5;
+  g.globalAlpha=isDark?0.42:0.72;
+  g.beginPath();g.moveTo(L,y);g.lineTo(W-R,y);g.stroke();
+  g.globalAlpha=1;
+  g.textAlign="right";
+  g.fillText(cfg.axis(v),L-6,y);
+  if(hasLoss){
+   g.globalAlpha=0.75;
+   g.textAlign="left";
+   g.fillText((i*25)+"%",W-R+6,y);
+   g.globalAlpha=1;
+  }
+ }
  g.textBaseline="top";
- var span=t1-t0,nt=Math.max(2,Math.min(6,Math.floor(pw/90)));
+ var nt=Math.max(2,Math.min(6,Math.floor(pw/90)));
  for(var j=0;j<=nt;j++){var t=t0+span*j/nt;g.textAlign=j===0?"left":j===nt?"right":"center";g.fillText(span>90000?mdhm(t):hhmm(t),X(t),H-B+6)}
+ /* 若包含丢包数据，在背景层按自适应时间桶绘制并排半透明丢包柱（右轴 0-100%） */
+ var lossGrid=null;
+ if(hasLoss){
+  var N=Math.min(56,Math.max(20,Math.floor(pw/14)));
+  var bw=pw/N,m=cfg.series.length;
+  var pad=Math.min(2,bw*0.12),gw=Math.max(1,bw-pad*2),sw=gw/m;
+  var perSeries=[];
+  cfg.series.forEach(function(s,si){
+   var sum=new Array(N),cnt=new Array(N);
+   for(var b=0;b<N;b++){sum[b]=0;cnt[b]=0}
+   s.pts.forEach(function(p){
+    if(!num(p[2]))return;
+    var bi=Math.floor((p[0]-t0)/span*N);
+    if(bi>=N)bi=N-1;if(bi<0)bi=0;
+    sum[bi]+=p[2];cnt[bi]++;
+   });
+   var vals=new Array(N);
+   var col=getColor(s,si);
+   var barW=Math.max(1,sw-(m>1&&sw>3?0.6:0));
+   for(var b=0;b<N;b++){
+    vals[b]=cnt[b]>0?(sum[b]/cnt[b]):null;
+    if(vals[b]>0){
+     var bh=Math.max(2,Math.min(100,vals[b])/100*ph);
+     var sx=L+b*bw+pad+si*sw;
+     var by=T+ph-bh;
+     g.fillStyle=col;
+     g.globalAlpha=isDark?0.28:0.22;
+     g.fillRect(sx,by,barW,bh);
+     g.globalAlpha=isDark?0.55:0.45;
+     g.fillRect(sx,by,barW,Math.min(1.5,bh));
+    }
+   }
+   g.globalAlpha=1;
+   perSeries.push(vals);
+  });
+  lossGrid={N:N,bw:bw,perSeries:perSeries};
+ }
  var gap=(cfg.step||60)*6.5;
  cfg.series.forEach(function(s,si){
-  var col=getColor(s,si);g.strokeStyle=col;g.lineWidth=1.6;g.lineJoin="round";
+  var col=getColor(s,si);g.strokeStyle=col;g.lineWidth=hasLoss?1.8:1.6;g.lineJoin="round";
   // 按缺口切成连续段，描线和单序列填充都按段处理，避免填充把断线区间连起来
   var segs=[],cur=null,prev=null;
   s.pts.forEach(function(p){
@@ -755,24 +853,39 @@ function drawChart(c){
    cur.push([X(p[0]),Y(p[1])]);prev=p[0]});
   segs.forEach(function(sg){
    g.beginPath();sg.forEach(function(q,k){if(k)g.lineTo(q[0],q[1]);else g.moveTo(q[0],q[1])});g.stroke();
-   if(cfg.series.length===1&&sg.length>1){g.lineTo(sg[sg.length-1][0],Y(base));g.lineTo(sg[0][0],Y(base));g.closePath();g.globalAlpha=.08;g.fillStyle=col;g.fill();g.globalAlpha=1}})});
+   if(!hasLoss&&cfg.series.length===1&&sg.length>1){g.lineTo(sg[sg.length-1][0],Y(base));g.lineTo(sg[0][0],Y(base));g.closePath();g.globalAlpha=.08;g.fillStyle=col;g.fill();g.globalAlpha=1}})});
  if(c.hx!==null&&c.hx>=L&&c.hx<=W-R){
   var tt=t0+(c.hx-L)/pw*span,rows=[],tx=null;
+  var hoverBi=lossGrid?Math.max(0,Math.min(lossGrid.N-1,Math.floor((c.hx-L)/pw*lossGrid.N))):-1;
   cfg.series.forEach(function(s,si){
    var best=null;s.pts.forEach(function(p){if(best===null||Math.abs(p[0]-tt)<Math.abs(best[0]-tt))best=p});
-   if(best&&Math.abs(best[0]-tt)<=gap){tx=best[0];rows.push({s:s,p:best,col:getColor(s,si)})}});
+   if(best&&Math.abs(best[0]-tt)<=gap){
+    tx=best[0];
+    var bkLoss=(lossGrid&&hoverBi>=0)?lossGrid.perSeries[si][hoverBi]:null;
+    rows.push({s:s,p:best,col:getColor(s,si),bkLoss:bkLoss});
+   }
+  });
   if(tx!==null){
+   if(lossGrid&&hoverBi>=0){
+    g.fillStyle=accent;g.globalAlpha=isDark?0.07:0.05;
+    g.fillRect(L+hoverBi*lossGrid.bw,T,lossGrid.bw,ph);
+    g.globalAlpha=1;
+   }
    var x=X(tx);g.strokeStyle=muted;g.lineWidth=1;g.setLineDash([3,3]);g.beginPath();g.moveTo(x,T);g.lineTo(x,T+ph);g.stroke();g.setLineDash([]);
    rows.forEach(function(r){if(num(r.p[1])){g.fillStyle=r.col;g.beginPath();g.arc(x,Y(r.p[1]),3.5,0,7);g.fill()}});
    c.tip.innerHTML='<div class="t">'+mdhm(tx)+'</div>'+rows.map(function(r){
     var lossStr = "";
-    if (r.p[2] !== undefined && r.p[2] !== null) {
-      lossStr = ' <span class="loss' + (r.p[2] > 0 ? ' bad' : '') + '">(丢包 ' + esc(r.p[2]) + '%)</span>';
+    var lvRaw = cfg.showLoss && num(r.bkLoss) ? r.bkLoss : r.p[2];
+    if (lvRaw !== undefined && lvRaw !== null) {
+     var lv = Math.round(lvRaw * 10) / 10;
+     var lCls = lv >= 10 ? " bad" : lv > 0 ? " warn" : "";
+     lossStr = ' <span class="loss' + lCls + '">(丢包 ' + esc(lv) + '%)</span>';
     }
-    return '<div><i style="background:'+r.col+'"></i>'+esc(r.s.name)+' '+esc(num(r.p[1])?cfg.fmt(r.p[1]):"—")+lossStr+'</div>';
+    var latTxt = num(r.p[1]) ? cfg.fmt(r.p[1]) : (num(lvRaw) && lvRaw >= 100 ? "全断" : "—");
+    return '<div><i style="background:'+r.col+'"></i>'+esc(r.s.name)+' '+esc(latTxt)+lossStr+'</div>';
    }).join("");
    c.tip.style.display="block";
-   var tw=c.tip.offsetWidth;c.tip.style.left=Math.max(L,Math.min(W-tw-4,x>W/2?x-tw-10:x+10))+"px";
+   var tw=c.tip.offsetWidth;c.tip.style.left=Math.max(L,Math.min(W-R-tw-4,x>L+pw/2?x-tw-10:x+10))+"px";
    return}}
  c.tip.style.display="none"}
 function getColor(s, i){
@@ -780,33 +893,35 @@ function getColor(s, i){
  var p = palette();
  return p[i % p.length];
 }
-function chartCard(target,title,series,cfg,extraHeader,cardId){
+function chartCard(target,title,series,cfg,extraHeader,cardId,defer){
  var wrap=document.createElement("div");wrap.className="chart-card";
  if(cardId)wrap.id=cardId;
  var isPing = cardId === "pingChartCard";
  var visibleSeries = isPing ? series.filter(function(s){return !S.hiddenProbes[s.id]}) : series;
  var has=visibleSeries.some(function(s){return s.pts.length>1});
  var leg=series.map(function(s,i){
-  var last=null;for(var k=s.pts.length-1;k>=0;k--)if(num(s.pts[k][1])){last=s.pts[k][1];break}
+  var val=null;
+  if(s.stat==="max"){
+   for(var k=0;k<s.pts.length;k++)if(num(s.pts[k][1])&&(val===null||s.pts[k][1]>val))val=s.pts[k][1];
+  }else{
+   for(var k=s.pts.length-1;k>=0;k--)if(num(s.pts[k][1])){val=s.pts[k][1];break}
+  }
   var subBadge = s.sub ? s.sub : "";
   var col = s.color || getColor(s, i);
   if(isPing){
    var isOff = !!S.hiddenProbes[s.id];
-   return '<button type="button" class="legend-item'+(isOff?" off":"")+'" data-probe-id="'+esc(s.id)+'" title="点击切换显示/隐藏"><i style="background:'+col+'"></i>'+esc(s.name)+'<b>'+esc(last===null?"—":cfg.fmt(last))+'</b>'+subBadge+'</button>';
+   return '<button type="button" class="legend-item'+(isOff?" off":"")+'" data-probe-id="'+esc(s.id)+'" title="点击切换显示/隐藏"><span class="lg-name"><i style="background:'+col+'"></i>'+esc(s.name)+'</span><span class="lg-meta"><b>'+esc(val===null?"—":cfg.fmt(val))+'</b>'+subBadge+'</span></button>';
   }
-  return '<span><i style="background:'+col+'"></i>'+esc(s.name)+'<b>'+esc(last===null?"—":cfg.fmt(last))+'</b>'+subBadge+'</span>';
+  return '<span><i style="background:'+col+'"></i>'+esc(s.name)+'<b>'+esc(val===null?"—":cfg.fmt(val))+'</b>'+subBadge+'</span>';
  }).join("");
- var hdr='<div class="chart-header"><h3>'+esc(title)+'</h3>'+(extraHeader||"")+'</div>';
- wrap.innerHTML=hdr+(has?'<div class="legend">'+leg+'</div><div class="chart"></div>':(isPing&&series.length?'<div class="legend">'+leg+'</div><div class="nodata">已隐藏所有探测点</div>':'<div class="nodata">暂无数据</div>'));
+ var hdr='<div class="chart-header"><h3>'+esc(title)+(cfg.subTitle?'<span class="chart-sub">'+esc(cfg.subTitle)+'</span>':'')+'</h3>'+(extraHeader||"")+'</div>';
+ var legCls=isPing?"legend ping-legend":"legend";
+ wrap.innerHTML=hdr+(has?'<div class="'+legCls+'">'+leg+'</div><div class="chart"></div>':(isPing&&series.length?'<div class="'+legCls+'">'+leg+'</div><div class="nodata">已隐藏所有探测点</div>':'<div class="nodata">暂无数据</div>'));
  var container=typeof target==="string"?$(target):target;
  if(container)container.appendChild(wrap);
- if(has){cfg.series=visibleSeries;makeChart(wrap.querySelector(".chart"),cfg)}}
-function renderPingChart(){
- var oldCard = document.getElementById("pingChartCard");
- if(oldCard && oldCard.parentNode) {
-  charts = charts.filter(function(c){return !oldCard.contains(c.host)});
-  oldCard.parentNode.removeChild(oldCard);
- }
+ if(has){cfg.series=visibleSeries;makeChart(wrap.querySelector(".chart"),cfg,defer)}
+ return wrap}
+function renderPingChart(target,defer){
  var d = S.lastHistoryData;
  if(!d) return;
  var ping=Array.isArray(d.ping)?d.ping:[],ids=[],seen={};
@@ -826,7 +941,7 @@ function renderPingChart(){
   }
   var rawPts = ping.filter(function(p){return p.task_id===t}).map(function(p){
    var lat = num(p.latency) && p.latency > 0 ? p.latency : null;
-   var l = (num(p.loss) ? p.loss : 0);
+   var l = num(p.loss) ? p.loss : (lat === null ? 100 : 0);
    return [p.ts, lat, l];
   });
   var smoothed = smoothPts(rawPts);
@@ -845,7 +960,33 @@ function renderPingChart(){
  var hiddenCount = Object.keys(S.hiddenProbes).filter(function(k){return S.hiddenProbes[k]}).length;
  var toggleAllTxt = hiddenCount > 0 ? "全部显示" : "全不选";
  var extraHdr = pCount > 1 ? '<div class="chart-toggles"><button class="chart-toggle" id="pingToggleAll">' + toggleAllTxt + '</button></div>' : "";
- chartCard("#dNetCharts","线路延迟与丢包率 (Ping)",pingSeries,{axis:function(v){return Math.round(v)+"ms"},fmt:function(v){return Math.round(v)+" ms"},step:step},extraHdr,"pingChartCard");
+ var anyLoss = pingSeries.some(function(s){
+  if(S.hiddenProbes[s.id])return false;
+  return s.pts.some(function(p){return num(p[2])&&p[2]>0});
+ });
+ var cfg = {
+  axis:function(v){return Math.round(v)+"ms"},
+  fmt:function(v){return Math.round(v)+" ms"},
+  step:step,
+  showLoss:true,
+  subTitle:anyLoss?"折线为延迟 · 柱状为丢包率":""
+ };
+ if(target){
+  chartCard(target,"线路延迟与丢包 (Ping)",pingSeries,cfg,extraHdr,"pingChartCard",defer);
+  return;
+ }
+ var detailEl=$("#detail"),savedTop=detailEl?detailEl.scrollTop:0,savedWinY=window.scrollY;
+ var oldCard = document.getElementById("pingChartCard");
+ var newCard = chartCard(null,"线路延迟与丢包 (Ping)",pingSeries,cfg,extraHdr,"pingChartCard",true);
+ if(oldCard && oldCard.parentNode){
+  charts = charts.filter(function(c){return !oldCard.contains(c.host)});
+  oldCard.parentNode.replaceChild(newCard, oldCard);
+ }else{
+  var netBox=$("#dNetCharts");if(netBox)netBox.appendChild(newCard);
+ }
+ redrawCharts();
+ if(detailEl && detailEl.scrollTop!==savedTop)detailEl.scrollTop=savedTop;
+ if(!desktop() && Math.abs(window.scrollY-savedWinY)>1)window.scrollTo(0,savedWinY);
 }
 
 function loadHistory(){
@@ -858,12 +999,14 @@ function loadHistory(){
   if(seq!==S.seq)return;
   var b=$("#dResCharts");if(b)b.innerHTML='<div class="chart-card"><div class="nodata">'+esc(e.message||"历史数据加载失败")+'</div></div>';
  })}
-/* 只用缓存数据重画：平滑、坐标轴切换和明暗切换都不用再请求接口 */
+/* 只用缓存数据重画：离屏构建后原子替换，避免定时刷新清空容器导致滚动条弹回顶部 */
 function renderHistory(){
   var d=S.lastHistoryData,id=S.detailId;if(!d||id===null)return;
   var resBox=$("#dResCharts"),netBox=$("#dNetCharts");
   if(!resBox||!netBox)return;
-  resBox.innerHTML="";netBox.innerHTML="";charts=[];
+  var detailEl=$("#detail"),savedTop=detailEl?detailEl.scrollTop:0,savedWinY=window.scrollY;
+  var resFrag=document.createDocumentFragment(),netFrag=document.createDocumentFragment();
+  charts=[];
   var rows=Array.isArray(d.metrics)?d.metrics:[],step=d.step||60;
   function ser(name,key,f){var raw=rows.map(function(r){return[r.ts,num(r[key])?(f?f(r[key]):r[key]):null]});return{name:name,pts:smoothPts(raw)}}
   var n=find(id)||{},memT=n.mem_total;
@@ -874,6 +1017,7 @@ function renderHistory(){
   var cpuAvg=ser("平均","cpu"),cpuMax=ser("峰值","cpu_max");
   cpuAvg.color = isDark ? "#dca457" : "#b86e1e";
   cpuMax.color = isDark ? "#d66d6d" : "#b83a3a";
+  cpuMax.stat = "max";
   var cpuVals=[].concat(cpuAvg.pts,cpuMax.pts).map(function(p){return p[1]}).filter(num);
   var cpuPeak=cpuVals.length?Math.max.apply(null,cpuVals):1;
   var cpuCfg={axis:function(v){return(v<10&&v>0?v.toFixed(1):Math.round(v))+"%"},fmt:function(v){return v.toFixed(1)+"%"},step:step};
@@ -885,7 +1029,7 @@ function renderHistory(){
    cpuCfg.max=100;cpuCfg.base=0;
   }
   var cpuToggle='<div class="chart-toggles"><button class="chart-toggle'+(S.cpuScale==="fit"?" active":"")+'" data-toggle="cpu:fit">自适应</button><button class="chart-toggle'+(S.cpuScale==="abs"?" active":"")+'" data-toggle="cpu:abs">0-100%</button></div>';
-  chartCard("#dResCharts","CPU 占用",[cpuAvg,cpuMax],cpuCfg,cpuToggle);
+  chartCard(resFrag,"CPU 占用",[cpuAvg,cpuMax],cpuCfg,cpuToggle,null,true);
 
   /* --- 2. 系统资源：内存 (松针绿 / 藕灰紫) --- */
   var memSer={name:"内存",pts:smoothPts(rows.map(function(r){return[r.ts,ratio(r.mem_used,memT)]})),color:isDark?"#52b788":"#2e8555"};
@@ -903,7 +1047,7 @@ function renderHistory(){
    memCfg.base=0;memCfg.max=100;
   }
   var memToggle='<div class="chart-toggles"><button class="chart-toggle'+(S.memScale==="fit"?" active":"")+'" data-toggle="mem:fit">自适应</button><button class="chart-toggle'+(S.memScale==="abs"?" active":"")+'" data-toggle="mem:abs">0-100%</button></div>';
-  chartCard("#dResCharts","内存使用",memSeries,memCfg,memToggle);
+  chartCard(resFrag,"内存使用",memSeries,memCfg,memToggle,null,true);
 
   /* --- 3. 网络监控：实时带宽 (青川蓝 / 豆青绿 / 雅致淡紫与麦金) --- */
   var rxSer=ser("下行","net_rx"),txSer=ser("上行","net_tx");
@@ -912,9 +1056,16 @@ function renderHistory(){
   txSer.color = isDark ? "#52b788" : "#2e8555";
   rxPeakSer.color = isDark ? "#9faae0" : "#5a68a5";
   txPeakSer.color = isDark ? "#dca457" : "#b86e1e";
-  chartCard("#dNetCharts","带宽与网络速率",[rxSer,txSer,rxPeakSer,txPeakSer],{axis:function(v){return bytes(v).replace(" ","")},fmt:speed,step:step});
+  rxPeakSer.stat = "max";
+  txPeakSer.stat = "max";
+  chartCard(netFrag,"带宽与网络速率",[rxSer,txSer,rxPeakSer,txPeakSer],{axis:axisBytes,niceMax:niceBytesMax,fmt:speed,step:step},null,null,true);
 
-  renderPingChart();
+  renderPingChart(netFrag,true);
+  swapContent(resBox,resFrag);
+  swapContent(netBox,netFrag);
+  redrawCharts();
+  if(detailEl && detailEl.scrollTop!==savedTop)detailEl.scrollTop=savedTop;
+  if(!desktop() && Math.abs(window.scrollY-savedWinY)>1)window.scrollTo(0,savedWinY);
 }
 
 /* ---------- 实时数据 ---------- */
@@ -1024,12 +1175,13 @@ document.addEventListener("click",function(e){
    renderPingChart();
   }
  }
- else if(t.id==="smoothToggle"||t.id==="netSmoothToggle"){
+ else if(t.id==="smoothToggle"){
   S.smooth = !S.smooth;
-  var txt = "削峰平滑: " + (S.smooth ? "开" : "关");
-  var b1 = $("#smoothToggle"), b2 = $("#netSmoothToggle");
-  if(b1) b1.textContent = txt;
-  if(b2) b2.textContent = txt;
+  var b1 = $("#smoothToggle");
+  if(b1){
+   b1.textContent = "削峰平滑: " + (S.smooth ? "开" : "关");
+   b1.classList.toggle("active", S.smooth);
+  }
   renderHistory();
  }
  else if(t.id==="back"){go("/")}

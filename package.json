@@ -1,6 +1,6 @@
 {
   "name": "monitor-theme-paper",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Paper theme for monitor status dashboard",
   "type": "module",
   "scripts": {
