@@ -1,10 +1,11 @@
 {
   "name": "monitor-theme-paper",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Paper theme for monitor status dashboard",
   "type": "module",
   "scripts": {
     "check": "node scripts/check.mjs",
+    "test": "node scripts/test-disk.mjs",
     "build": "node scripts/build.mjs"
   },
   "keywords": [
